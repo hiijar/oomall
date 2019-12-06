@@ -76,7 +76,7 @@ CREATE TABLE `privilege` (
   `id` bigint(11) unsigned NOT NULL AUTO_INCREMENT,
   `role_id` bigint(11) unsigned DEFAULT NULL,
   `name` varchar(63) NOT NULL,
-  `description` varchar(1023) DEFAULT NULL,
+  `description` varchar(1000) DEFAULT NULL,
   `gmt_create` datetime(2) DEFAULT NULL,
   `gmt_modified` datetime(2) DEFAULT NULL,
   `is_deleted` tinyint(1) unsigned DEFAULT '0',
@@ -395,6 +395,8 @@ CREATE TABLE `order_item` (
   `gmt_create` datetime(2) DEFAULT NULL,
   `gmt_modified` datetime(2) DEFAULT NULL,
   `is_deleted` tinyint(1) unsigned DEFAULT '0',
+  `goods_id` bigint(11) unsigned DEFAULT NULL,
+  `name_with_specifications` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
 

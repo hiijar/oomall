@@ -40,6 +40,18 @@ public class OrderItem {
      * 订单项对应货品ID
      */
     private Integer productId;
+    /**
+     * 订单项对应商品ID（冗余存储）
+     */
+    private Integer goodsId;
+    /**
+     * 订单项对应商品的描述（冗余存储）
+     */
+    private String nameWithSpecifications;
+    /**
+     * 订单项对应商品图片（冗余存储）
+     */
+    private String picUrl;
     private LocalDateTime gmtCreate;
     private LocalDateTime gmtModified;
     private Boolean beDeleted;
@@ -56,6 +68,9 @@ public class OrderItem {
                 ", price=" + price +
                 ", dealPrice=" + dealPrice +
                 ", productId=" + productId +
+                ", goodsId=" + goodsId +
+                ", nameWithSpecifications='" + nameWithSpecifications + '\'' +
+                ", picUrl='" + picUrl + '\'' +
                 ", gmtCreate=" + gmtCreate +
                 ", gmtModified=" + gmtModified +
                 ", beDeleted=" + beDeleted +
@@ -145,6 +160,30 @@ public class OrderItem {
 
     public void setProductId(Integer productId) {
         this.productId = productId;
+    }
+
+    public Integer getGoodsId() {
+        return goodsId;
+    }
+
+    public void setGoodsId(Integer goodsId) {
+        this.goodsId = goodsId;
+    }
+
+    public String getNameWithSpecifications() {
+        return nameWithSpecifications;
+    }
+
+    public void setNameWithSpecifications(String nameWithSpecifications) {
+        this.nameWithSpecifications = nameWithSpecifications;
+    }
+
+    public String getPicUrl() {
+        return picUrl;
+    }
+
+    public void setPicUrl(String picUrl) {
+        this.picUrl = picUrl;
     }
 
     public LocalDateTime getGmtCreate() {
