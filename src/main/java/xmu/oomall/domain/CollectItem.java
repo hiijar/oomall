@@ -1,4 +1,4 @@
-package com.oomall.oomall.domain;
+package xmu.good.oomall.domain;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -12,13 +12,13 @@ import java.util.Objects;
 
 public class CollectItem {
     private Integer id;
-    /*
+    /**
     *商品id
-    * */
+    */
     private Integer goodsId;
-    /*
+    /**
     *用户id
-    * */
+    */
     private Integer userId;
 
     private LocalDateTime gmtCreate;

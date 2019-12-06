@@ -1,4 +1,4 @@
-package com.oomall.oomall.domain;
+package xmu.good.oomall.domain;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -12,27 +12,26 @@ import java.util.Objects;
 
 public class ShareRule {
     private Integer id;
-
-    private LocalDateTime gmtCreate;
-    private LocalDateTime gmtModified;
-    /*
+    /**
     *该分享活动开始时间
-    * */
+    */
     private LocalDateTime beginTime;
-    /*
+    /**
     * 该分享活动结束时间
-    * */
+    */
     private LocalDateTime endTime;
-    /*
+    /**
     * 分享等级（分享次数所对应返利）
-    * */
+    */
     private String shareLevelStrategy;
-    /*
+    /**
     *商品ID
-    * */
+    */
     private Integer goodsId;
 
     private Boolean beDeleted;
+    private LocalDateTime gmtCreate;
+    private LocalDateTime gmtModified;
 
     @Override
     public String toString() {

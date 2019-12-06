@@ -1,4 +1,4 @@
-package com.oomall.oomall.domain;
+package xmu.good.oomall.domain;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -32,7 +32,7 @@ public class CouponRule {
     /**
      * 优惠券规则的图片
      */
-    private String pciUrl;
+    private String picUrl;
     /**
      * 优惠券规则的有效期(即有效的天数)
      */
@@ -59,7 +59,7 @@ public class CouponRule {
     private String goodsList2;
     private LocalDateTime gmtCreate;
     private LocalDateTime gmtModified;
-    private Boolean beDelete;
+    private Boolean beDeleted;
 
 
     @Override
@@ -70,15 +70,15 @@ public class CouponRule {
         return Objects.equals(id, that.id);
     }
 
-    @java.lang.Override
-    public java.lang.String toString() {
+    @Override
+    public String toString() {
         return "CouponRule{" +
                 "id=" + id +
                 ", name=" + name +
-                ", name='" + name + '\'' +
+                ", brief='" + brief + '\'' +
                 ", beginTime=" + beginTime +
                 ", endTime=" + endTime +
-                ", pciUrl='" + pciUrl + '\'' +
+                ", picUrl='" + picUrl + '\'' +
                 ", validPeriod=" + validPeriod +
                 ", discount=" + discount +
                 ", limit=" + limit +
@@ -87,7 +87,7 @@ public class CouponRule {
                 ", goodsList2='" + goodsList2 + '\'' +
                 ", gmtCreate=" + gmtCreate +
                 ", gmtModified=" + gmtModified +
-                ", beDelete=" + beDelete +
+                ", beDeleted=" + beDeleted +
                 '}';
     }
 
@@ -132,12 +132,12 @@ public class CouponRule {
         this.endTime = endTime;
     }
 
-    public String getPciUrl() {
-        return pciUrl;
+    public String getPicUrl() {
+        return picUrl;
     }
 
-    public void setPciUrl(String pciUrl) {
-        this.pciUrl = pciUrl;
+    public void setPicUrl(String picUrl) {
+        this.picUrl = picUrl;
     }
 
     public Integer getValidPeriod() {
@@ -204,12 +204,12 @@ public class CouponRule {
         this.gmtModified = gmtModified;
     }
 
-    public Boolean getBeDelete() {
-        return beDelete;
+    public Boolean getBeDeleted() {
+        return beDeleted;
     }
 
-    public void setBeDelete(Boolean beDelete) {
-        this.beDelete = beDelete;
+    public void setBeDeleted(Boolean beDeleted) {
+        this.beDeleted = beDeleted;
     }
 
     public void setName(Integer name) {

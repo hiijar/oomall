@@ -1,4 +1,4 @@
-package com.oomall.oomall.domain;
+package xmu.good.oomall.domain;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -46,10 +46,10 @@ public class Coupon {
     private String picUrl;
     private LocalDateTime gmtCreate;
     private LocalDateTime gmtModified;
-    private Boolean beDelete;
+    private Boolean beDeleted;
 
-    @java.lang.Override
-    public java.lang.String toString() {
+    @Override
+    public String toString() {
         return "Coupon{" +
                 "id=" + id +
                 ", userId=" + userId +
@@ -62,7 +62,7 @@ public class Coupon {
                 ", picUrl='" + picUrl + '\'' +
                 ", gmtCreate=" + gmtCreate +
                 ", gmtModified=" + gmtModified +
-                ", beDelete=" + beDelete +
+                ", beDeleted=" + beDeleted +
                 '}';
     }
 
@@ -167,11 +167,11 @@ public class Coupon {
         this.gmtModified = gmtModified;
     }
 
-    public Boolean getBeDelete() {
-        return beDelete;
+    public Boolean getBeDeleted() {
+        return beDeleted;
     }
 
-    public void setBeDelete(Boolean beDelete) {
-        this.beDelete = beDelete;
+    public void setBeDeleted(Boolean beDeleted) {
+        this.beDeleted = beDeleted;
     }
 }

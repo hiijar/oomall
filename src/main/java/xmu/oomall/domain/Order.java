@@ -1,4 +1,4 @@
-package com.oomall.oomall.domain;
+package xmu.good.oomall.domain;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -27,7 +27,7 @@ public class Order {
     /**
      * 订单状态，1未付款，2未发货，3未收获，4未评价，5已完成订单，6退货订单，7换货订单
      */
-    private Short statusCode;
+    private Integer statusCode;
     /**
      * 收件人姓名
      */
@@ -43,7 +43,7 @@ public class Order {
     /**
      * 订单费用
      */
-    private BigDecimal goodPrice;
+    private BigDecimal goodsPrice;
     /**
      * 优惠卷减免费用
      */
@@ -96,8 +96,8 @@ public class Order {
     private LocalDateTime gmtModified;
     private Boolean beDeleted;
 
-    @java.lang.Override
-    public java.lang.String toString() {
+    @Override
+    public String toString() {
         return "Order{" +
                 "id=" + id +
                 ", userId=" + userId +
@@ -107,7 +107,7 @@ public class Order {
                 ", consignee='" + consignee + '\'' +
                 ", mobile='" + mobile + '\'' +
                 ", message='" + message + '\'' +
-                ", goodPrice=" + goodPrice +
+                ", goodsPrice=" + goodsPrice +
                 ", couponPrice=" + couponPrice +
                 ", rebatePrice=" + rebatePrice +
                 ", freightPrice=" + freightPrice +
@@ -171,11 +171,11 @@ public class Order {
         this.orderSn = orderSn;
     }
 
-    public Short getStatusCode() {
+    public Integer getStatusCode() {
         return statusCode;
     }
 
-    public void setStatusCode(Short statusCode) {
+    public void setStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
     }
 
@@ -203,12 +203,12 @@ public class Order {
         this.message = message;
     }
 
-    public BigDecimal getGoodPrice() {
-        return goodPrice;
+    public BigDecimal getGoodsPrice() {
+        return goodsPrice;
     }
 
-    public void setGoodPrice(BigDecimal goodPrice) {
-        this.goodPrice = goodPrice;
+    public void setGoodsPrice(BigDecimal goodsPrice) {
+        this.goodsPrice = goodsPrice;
     }
 
     public BigDecimal getCouponPrice() {

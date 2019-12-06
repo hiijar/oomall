@@ -1,8 +1,15 @@
-package com.oomall.oomall.domain;
+package xmu.good.oomall.domain;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Objects;
+
+/**
+ * @Author: 数据库与对象模型标准组
+ * @Description: 默认件数模板
+ * @Date: Created in 16:00 2019/11/29
+ * @Modified By:
+ **/
 
 public class DefaultPieceFreight {
 
@@ -18,7 +25,7 @@ public class DefaultPieceFreight {
 
     private LocalDateTime gmtCreate;
     private LocalDateTime gmtModified;
-    private Boolean beDelete;
+    private Boolean beDeleted;
 
     @Override
     public String toString() {
@@ -28,7 +35,7 @@ public class DefaultPieceFreight {
                 ", unitRate=" + unitRate +
                 ", gmtCreate=" + gmtCreate +
                 ", gmtModified=" + gmtModified +
-                ", beDelete=" + beDelete +
+                ", beDeleted=" + beDeleted +
                 '}';
     }
 
@@ -85,11 +92,11 @@ public class DefaultPieceFreight {
         this.gmtModified = gmtModified;
     }
 
-    public Boolean getBeDelete() {
-        return beDelete;
+    public Boolean getBeDeleted() {
+        return beDeleted;
     }
 
-    public void setBeDelete(Boolean beDelete) {
-        this.beDelete = beDelete;
+    public void setBeDeleted(Boolean beDeleted) {
+        this.beDeleted = beDeleted;
     }
 }

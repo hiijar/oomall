@@ -1,4 +1,4 @@
-package com.oomall.oomall.domain;
+package xmu.good.oomall.domain;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -12,30 +12,29 @@ import java.util.Objects;
 
 public class GroupOnRule {
     private Integer id;
-
+    /**
+     *团购开始时间
+     */
+    private LocalDateTime startTime;
+    /**
+     *团购结束时间
+     */
+    private LocalDateTime endTime;
+    /**
+    *判断团购是否还在进行中
+    */
+    private Boolean statusCode;
+    /**
+    * 团购等级（满多少人组团多少折扣）
+    */
+    private String grouponLevelStragety;
+    /**
+    *团购商品id
+    */
+    private Integer goodsId;
     private LocalDateTime gmtCreate;
     private LocalDateTime gmtModified;
     private Boolean beDeleted;
-    /*
-     *团购开始时间
-     * */
-    private LocalDateTime startTime;
-    /*
-     *团购结束时间
-     * */
-    private LocalDateTime endTime;
-    /*
-    *判断团购是否还在进行中
-    * */
-    private Boolean statusCode;
-    /*
-    * 团购等级（满多少人组团多少折扣）
-    * */
-    private String grouponLevelStragety;
-    /*
-    *团购产品id
-    * */
-    private Integer productId;
 
     @Override
     public String toString() {
@@ -48,14 +47,14 @@ public class GroupOnRule {
                 ", endTime=" + endTime +
                 ", statusCode=" + statusCode +
                 ", grouponLevelStragety='" + grouponLevelStragety + '\'' +
-                ", productId=" + productId +
+                ", goodsId=" + goodsId +
                 '}';
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {return true;}
+        if (o == null || getClass() != o.getClass()) {return false;}
         GroupOnRule that = (GroupOnRule) o;
         return Objects.equals(id, that.id);
     }
@@ -129,11 +128,11 @@ public class GroupOnRule {
         this.grouponLevelStragety = grouponLevelStragety;
     }
 
-    public Integer getProductId() {
-        return productId;
+    public Integer getGoodsId() {
+        return goodsId;
     }
 
-    public void setProductId(Integer productId) {
-        this.productId = productId;
+    public void setGoodsId(Integer goodsId) {
+        this.goodsId = goodsId;
     }
 }

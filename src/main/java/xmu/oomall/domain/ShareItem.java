@@ -1,4 +1,4 @@
-package com.oomall.oomall.domain;
+package xmu.good.oomall.domain;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -12,18 +12,19 @@ import java.util.Objects;
 
 public class ShareItem {
     private Integer id;
-    /*
+    /**
     *分享者ID
-    * */
+    *
+    */
     private Integer userId;
-    /*
+    /**
     *商品ID
     * */
     private Integer goodsId;
-    /*
+    /**
     *（谁分享了某件商品到达的级数状态，如张山已经分享了一个杯子50件了，按照这杯子的规则，他现在的分享状态是2级）
     * */
-    private short statusCode;
+    private Integer statusCode;
 
     private LocalDateTime gmtCreate;
     private LocalDateTime gmtModified;
@@ -79,11 +80,11 @@ public class ShareItem {
         this.goodsId = goodsId;
     }
 
-    public short getStatusCode() {
+    public Integer getStatusCode() {
         return statusCode;
     }
 
-    public void setStatusCode(short statusCode) {
+    public void setStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
     }
 

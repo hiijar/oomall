@@ -1,4 +1,4 @@
-package com.oomall.oomall.domain;
+package xmu.good.oomall.domain;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -40,7 +40,7 @@ public class User {
     /**
      * 用户积分
      */
-    private Short rebate;
+    private Integer rebate;
     /**
      * 用户头像图片
      */
@@ -56,7 +56,7 @@ public class User {
     /**
      * 用户级别
      */
-    private Short userLevel;
+    private Integer userLevel;
     /**
      * 微信Open ID
      */
@@ -162,12 +162,16 @@ public class User {
         this.mobile = mobile;
     }
 
-    public Short getRebate() {
+    public Integer getRebate() {
         return rebate;
     }
 
-    public void setRebate(Short rebate) {
+    public void setRebate(Integer rebate) {
         this.rebate = rebate;
+    }
+
+    public void setUserLevel(Integer userLevel) {
+        this.userLevel = userLevel;
     }
 
     public String getAvatar() {
@@ -192,14 +196,6 @@ public class User {
 
     public void setLastLoginIp(String lastLoginIp) {
         this.lastLoginIp = lastLoginIp;
-    }
-
-    public Short getUserLevel() {
-        return userLevel;
-    }
-
-    public void setUserLevel(Short userLevel) {
-        this.userLevel = userLevel;
     }
 
     public String getWxOpenId() {

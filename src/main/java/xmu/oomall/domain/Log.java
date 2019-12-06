@@ -1,4 +1,4 @@
-package com.oomall.oomall.domain;
+package xmu.good.oomall.domain;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -23,7 +23,7 @@ public class Log {
     /**
      * 操作的类型
      */
-    private short type;
+    private Integer type;
     /**
      * 操作的动作
      */
@@ -31,17 +31,17 @@ public class Log {
     /**
      * 操作的状态(如 200)
      */
-    private short statusCode;
+    private Integer statusCode;
     /**
      * 操作对象的ID
      */
     private Integer actionId;
     private LocalDateTime gmtCreate;
     private LocalDateTime gmtModified;
-    private Boolean beDelete;
+    private Boolean beDeleted;
 
-    @java.lang.Override
-    public java.lang.String toString() {
+    @Override
+    public String toString() {
         return "Log{" +
                 "id=" + id +
                 ", adminIdId=" + adminIdId +
@@ -52,7 +52,7 @@ public class Log {
                 ", actionId=" + actionId +
                 ", gmtCreate=" + gmtCreate +
                 ", gmtModified=" + gmtModified +
-                ", beDelete=" + beDelete +
+                ", beDeleted=" + beDeleted +
                 '}';
     }
 
@@ -93,12 +93,20 @@ public class Log {
         this.ip = ip;
     }
 
-    public short getType() {
+    public Integer getType() {
         return type;
     }
 
-    public void setType(short type) {
+    public void setType(Integer type) {
         this.type = type;
+    }
+
+    public Boolean getBeDeleted() {
+        return beDeleted;
+    }
+
+    public void setBeDeleted(Boolean beDeleted) {
+        this.beDeleted = beDeleted;
     }
 
     public String getAction() {
@@ -109,11 +117,11 @@ public class Log {
         this.action = action;
     }
 
-    public short getStatusCode() {
+    public Integer getStatusCode() {
         return statusCode;
     }
 
-    public void setStatusCode(short statusCode) {
+    public void setStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
     }
 
@@ -141,11 +149,4 @@ public class Log {
         this.gmtModified = gmtModified;
     }
 
-    public Boolean getBeDelete() {
-        return beDelete;
-    }
-
-    public void setBeDelete(Boolean beDelete) {
-        this.beDelete = beDelete;
-    }
 }

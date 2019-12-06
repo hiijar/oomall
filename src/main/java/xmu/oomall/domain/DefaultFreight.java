@@ -1,13 +1,12 @@
-package com.oomall.oomall.domain;
+package xmu.good.oomall.domain;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Objects;
-
 /**
  * @Author: 数据库与对象模型标准组
- * @Description:根据重量计算邮费的默认模板
- * @Data:Created in 14:50 2019/11/29
+ * @Description: 默认重量模板
+ * @Date: Created in 16:00 2019/11/29
  * @Modified By:
  **/
 
@@ -44,10 +43,10 @@ public class DefaultFreight {
     /**
      * 快递送到需要的时间（次日 或者 1-2天等 ）
      */
-    private String requireTime;
+    private Integer requireDays;
     private LocalDateTime gmtCreate;
     private LocalDateTime gmtModified;
-    private Boolean beDelete;
+    private Boolean beDeleted;
 
     @Override
     public String toString() {
@@ -60,10 +59,10 @@ public class DefaultFreight {
                 ", over50Price=" + over50Price +
                 ", over100Price=" + over100Price +
                 ", over300Price=" + over300Price +
-                ", requireTime='" + requireTime + '\'' +
+                ", requireDays=" + requireDays +
                 ", gmtCreate=" + gmtCreate +
                 ", gmtModified=" + gmtModified +
-                ", beDelete=" + beDelete +
+                ", beDeleted=" + beDeleted +
                 '}';
     }
 
@@ -144,12 +143,12 @@ public class DefaultFreight {
         this.over300Price = over300Price;
     }
 
-    public String getRequireTime() {
-        return requireTime;
+    public Integer getRequireDays() {
+        return requireDays;
     }
 
-    public void setRequireTime(String requireTime) {
-        this.requireTime = requireTime;
+    public void setRequireDays(Integer requireDays) {
+        this.requireDays = requireDays;
     }
 
     public LocalDateTime getGmtCreate() {
@@ -168,11 +167,11 @@ public class DefaultFreight {
         this.gmtModified = gmtModified;
     }
 
-    public Boolean getBeDelete() {
-        return beDelete;
+    public Boolean getBeDeleted() {
+        return beDeleted;
     }
 
-    public void setBeDelete(Boolean beDelete) {
-        this.beDelete = beDelete;
+    public void setBeDeleted(Boolean beDeleted) {
+        this.beDeleted = beDeleted;
     }
 }

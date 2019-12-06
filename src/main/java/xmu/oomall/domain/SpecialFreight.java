@@ -1,8 +1,15 @@
-package com.oomall.oomall.domain;
+package xmu.good.oomall.domain;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Objects;
+
+/**
+ * @Author: 数据库与对象模型标准组
+ * @Description: 特殊运费模板
+ * @Date: Created in 16:00 2019/11/29
+ * @Modified By:
+ **/
 
 public class SpecialFreight {
 
@@ -10,35 +17,35 @@ public class SpecialFreight {
     /**
      * 首几件
      */
-    private Short firstXPiece;
+    private Integer firstNumPiece;
     /**
      * 首几件价格
      */
-    private BigDecimal firstXPiecePrice;
+    private BigDecimal firstNumPiecePrice;
     /**
      * 续几件
      */
-    private Short continueXPiece;
+    private Integer continueNumPiece;
     /**
      * 续几件的价格
      */
-    private BigDecimal continueXPiecePrice;
+    private BigDecimal continueNumPiecePrice;
 
     private LocalDateTime gmtCreate;
     private LocalDateTime gmtModified;
-    private Boolean beDelete;
+    private Boolean beDeleted;
 
     @Override
     public String toString() {
         return "SpecialFreight{" +
                 "id=" + id +
-                ", firstXPiece=" + firstXPiece +
-                ", firstXPiecePrice=" + firstXPiecePrice +
-                ", continueXPiece=" + continueXPiece +
-                ", continueXPiecePrice=" + continueXPiecePrice +
+                ", firstNumPiece=" + firstNumPiece +
+                ", firstNumPiecePrice=" + firstNumPiecePrice +
+                ", continueNumPiece=" + continueNumPiece +
+                ", continueNumPiecePrice=" + continueNumPiecePrice +
                 ", gmtCreate=" + gmtCreate +
                 ", gmtModified=" + gmtModified +
-                ", beDelete=" + beDelete +
+                ", beDeleted=" + beDeleted +
                 '}';
     }
 
@@ -63,36 +70,36 @@ public class SpecialFreight {
         this.id = id;
     }
 
-    public Short getFirstXPiece() {
-        return firstXPiece;
+    public Integer getFirstNumPiece() {
+        return firstNumPiece;
     }
 
-    public void setFirstXPiece(Short firstXPiece) {
-        this.firstXPiece = firstXPiece;
+    public void setFirstNumPiece(Integer firstNumPiece) {
+        this.firstNumPiece = firstNumPiece;
     }
 
-    public BigDecimal getFirstXPiecePrice() {
-        return firstXPiecePrice;
+    public BigDecimal getFirstNumPiecePrice() {
+        return firstNumPiecePrice;
     }
 
-    public void setFirstXPiecePrice(BigDecimal firstXPiecePrice) {
-        this.firstXPiecePrice = firstXPiecePrice;
+    public void setFirstNumPiecePrice(BigDecimal firstNumPiecePrice) {
+        this.firstNumPiecePrice = firstNumPiecePrice;
     }
 
-    public Short getContinueXPiece() {
-        return continueXPiece;
+    public Integer getContinueNumPiece() {
+        return continueNumPiece;
     }
 
-    public void setContinueXPiece(Short continueXPiece) {
-        this.continueXPiece = continueXPiece;
+    public void setContinueNumPiece(Integer continueNumPiece) {
+        this.continueNumPiece = continueNumPiece;
     }
 
-    public BigDecimal getContinueXPiecePrice() {
-        return continueXPiecePrice;
+    public BigDecimal getContinueNumPiecePrice() {
+        return continueNumPiecePrice;
     }
 
-    public void setContinueXPiecePrice(BigDecimal continueXPiecePrice) {
-        this.continueXPiecePrice = continueXPiecePrice;
+    public void setContinueNumPiecePrice(BigDecimal continueNumPiecePrice) {
+        this.continueNumPiecePrice = continueNumPiecePrice;
     }
 
     public LocalDateTime getGmtCreate() {
@@ -111,11 +118,11 @@ public class SpecialFreight {
         this.gmtModified = gmtModified;
     }
 
-    public Boolean getBeDelete() {
-        return beDelete;
+    public Boolean getBeDeleted() {
+        return beDeleted;
     }
 
-    public void setBeDelete(Boolean beDelete) {
-        this.beDelete = beDelete;
+    public void setBeDeleted(Boolean beDeleted) {
+        this.beDeleted = beDeleted;
     }
 }

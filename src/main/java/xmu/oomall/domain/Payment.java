@@ -1,4 +1,4 @@
-package com.oomall.oomall.domain;
+package xmu.good.oomall.domain;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -19,7 +19,7 @@ public class Payment {
     /**
      * 付款渠道，微信，银行等等
      */
-    private Short payChannel;
+    private Integer payChannel;
     /**
      * 是否付款成功,0不成功，1成功
      */
@@ -95,11 +95,11 @@ public class Payment {
         this.actualPrice = actualPrice;
     }
 
-    public Short getPayChannel() {
+    public Integer getPayChannel() {
         return payChannel;
     }
 
-    public void setPayChannel(Short payChannel) {
+    public void setPayChannel(Integer payChannel) {
         this.payChannel = payChannel;
     }
 

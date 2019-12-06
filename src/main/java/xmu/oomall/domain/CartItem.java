@@ -1,4 +1,4 @@
-package com.oomall.oomall.domain;
+package xmu.good.oomall.domain;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -23,6 +23,10 @@ public class CartItem {
      * 是否选中，0未选中，1已选中
      */
     private Boolean beCheck;
+    /**
+     * 数量
+     */
+    private Integer number;
     private LocalDateTime gmtCreate;
     private LocalDateTime gmtModified;
 
@@ -33,6 +37,7 @@ public class CartItem {
                 ", userId=" + userId +
                 ", productId=" + productId +
                 ", beCheck=" + beCheck +
+                ", number=" + number +
                 ", gmtCreate=" + gmtCreate +
                 ", gmtModified=" + gmtModified +
                 '}';
@@ -97,5 +102,13 @@ public class CartItem {
 
     public void setGmtModified(LocalDateTime gmtModified) {
         this.gmtModified = gmtModified;
+    }
+
+    public Integer getNumber() {
+        return number;
+    }
+
+    public void setNumber(Integer number) {
+        this.number = number;
     }
 }

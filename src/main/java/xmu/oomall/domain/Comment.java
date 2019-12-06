@@ -1,4 +1,4 @@
-package com.oomall.oomall.domain;
+package xmu.good.oomall.domain;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -23,15 +23,15 @@ public class Comment {
     /**
      * 评论的状态 0：未审核 1：审核通过 2：审核失败
      */
-    private Short statusCode;
+    private Integer statusCode;
     /**
      * 发表评论的类型
      */
-    private Short type;
+    private Integer type;
     /**
      * 发表评论的星级
      */
-    private Short star;
+    private Integer star;
     /**
      * 评论的产品的id
      */
@@ -99,27 +99,27 @@ public class Comment {
         this.content = content;
     }
 
-    public Short getStatusCode() {
+    public Integer getStatusCode() {
         return statusCode;
     }
 
-    public void setStatusCode(Short statusCode) {
+    public void setStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
     }
 
-    public Short getType() {
+    public Integer getType() {
         return type;
     }
 
-    public void setType(Short type) {
+    public void setType(Integer type) {
         this.type = type;
     }
 
-    public Short getStar() {
+    public Integer getStar() {
         return star;
     }
 
-    public void setStar(Short star) {
+    public void setStar(Integer star) {
         this.star = star;
     }
 

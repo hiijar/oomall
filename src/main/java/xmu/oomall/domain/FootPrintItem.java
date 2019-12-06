@@ -1,4 +1,4 @@
-package com.oomall.oomall.domain;
+package xmu.good.oomall.domain;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -13,25 +13,25 @@ import java.util.Objects;
 public class FootPrintItem {
     private Integer id;
 
-    private LocalDateTime gmtCreated;
-    /*
+    /**
     *创建时间
-    * */
+    */
     private LocalDateTime birthTime;
-    /*
+    /**
     *用户id
-    * */
+    */
     private Integer userId;
-    /*
+    /**
     *商品id
-    * */
+    */
     private Integer goodsId;
+    private LocalDateTime gmtCreate;
 
-    @java.lang.Override
-    public java.lang.String toString() {
+    @Override
+    public String toString() {
         return "FootPrintItem{" +
                 "id=" + id +
-                ", gmtCreated=" + gmtCreated +
+                ", gmtCreate=" + gmtCreate +
                 ", birthTime=" + birthTime +
                 ", userId=" + userId +
                 ", goodsId=" + goodsId +
@@ -59,12 +59,12 @@ public class FootPrintItem {
         this.id = id;
     }
 
-    public LocalDateTime getGmtCreated() {
-        return gmtCreated;
+    public LocalDateTime getGmtCreate() {
+        return gmtCreate;
     }
 
-    public void setGmtCreated(LocalDateTime gmtCreated) {
-        this.gmtCreated = gmtCreated;
+    public void setGmtCreate(LocalDateTime gmtCreate) {
+        this.gmtCreate = gmtCreate;
     }
 
     public LocalDateTime getBirthTime() {

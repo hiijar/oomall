@@ -1,4 +1,4 @@
-package com.oomall.oomall.domain;
+package xmu.good.oomall.domain;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -46,6 +46,10 @@ public class Address {
      */
     private String postalCode;
     /**
+     * 收件人
+     */
+    private String consignee;
+    /**
      * 是否是默认地址
      */
     private boolean beDefault;
@@ -67,6 +71,7 @@ public class Address {
                 ", addressDetail='" + addressDetail + '\'' +
                 ", mobile='" + mobile + '\'' +
                 ", postalCode='" + postalCode + '\'' +
+                ", consignee='" + consignee + '\'' +
                 ", beDefault=" + beDefault +
                 ", gmtCreate=" + gmtCreate +
                 ", gmtModified=" + gmtModified +
@@ -157,6 +162,14 @@ public class Address {
 
     public void setPostalCode(String postalCode) {
         this.postalCode = postalCode;
+    }
+
+    public String getConsignee() {
+        return consignee;
+    }
+
+    public void setConsignee(String consignee) {
+        this.consignee = consignee;
     }
 
     public boolean isBeDefault() {

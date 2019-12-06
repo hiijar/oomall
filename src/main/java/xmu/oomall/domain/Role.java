@@ -1,28 +1,21 @@
 package xmu.good.oomall.domain;
+
 import java.time.LocalDateTime;
 import java.util.Objects;
 
 /**
  * @Author: 数据库与对象模型标准组
- * @Description:品牌信息
+ * @Description: 角色表
  * @Data:Created in 14:50 2019/11/29
  * @Modified By:
  **/
 
-public class Brand {
+public class Role {
     private Integer id;
     /**
-    *品牌名称
-    */
-    private String name;
-    /**
-    *品牌描述
-    */
-    private String description;
-    /**
-    *品牌图片链接
+     * 角色名字
      */
-    private String picUrl;
+    private String name;
 
     private LocalDateTime gmtCreate;
     private LocalDateTime gmtModified;
@@ -30,11 +23,9 @@ public class Brand {
 
     @Override
     public String toString() {
-        return "Brand{" +
+        return "Role{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", picUrl='" + picUrl + '\'' +
                 ", gmtCreate=" + gmtCreate +
                 ", gmtModified=" + gmtModified +
                 ", beDeleted=" + beDeleted +
@@ -45,8 +36,8 @@ public class Brand {
     public boolean equals(Object o) {
         if (this == o) {return true;}
         if (o == null || getClass() != o.getClass()) {return false;}
-        Brand brand = (Brand) o;
-        return Objects.equals(id, brand.id);
+        Role role = (Role) o;
+        return Objects.equals(id, role.id);
     }
 
     @Override
@@ -68,22 +59,6 @@ public class Brand {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getPicUrl() {
-        return picUrl;
-    }
-
-    public void setPicUrl(String picUrl) {
-        this.picUrl = picUrl;
     }
 
     public LocalDateTime getGmtCreate() {

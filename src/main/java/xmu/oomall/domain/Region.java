@@ -1,6 +1,13 @@
-package com.oomall.oomall.domain;
+package xmu.good.oomall.domain;
 
 import java.util.Objects;
+
+/**
+ * @Author: 数据库与对象模型标准组
+ * @Description: 地区信息
+ * @Date: Created in 16:00 2019/11/29
+ * @Modified By:
+ **/
 
 public class Region {
 
@@ -16,7 +23,7 @@ public class Region {
     /**
      * 类型
      */
-    private Short type;
+    private Integer type;
     /**
      * 邮政编码
      */
@@ -70,11 +77,11 @@ public class Region {
         this.name = name;
     }
 
-    public Short getType() {
+    public Integer getType() {
         return type;
     }
 
-    public void setType(Short type) {
+    public void setType(Integer type) {
         this.type = type;
     }
 

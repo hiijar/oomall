@@ -1,4 +1,4 @@
-package com.oomall.oomall.domain;
+package xmu.good.oomall.domain;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -24,11 +24,14 @@ public class BeSharedItem {
     /**
      * 状态 0：表示分享成功 1：表示成功购买且未退货
      */
-    private Short statusCode;
+    private Integer statusCode;
     /**
      * 分享成功时的时间
      */
     private LocalDateTime birthTime;
+    private LocalDateTime gmtCreate;
+    private LocalDateTime gmtModified;
+    private Boolean beDeleted;
 
     @Override
     public String toString() {
@@ -38,6 +41,9 @@ public class BeSharedItem {
                 ", beSharedUserId=" + beSharedUserId +
                 ", statusCode=" + statusCode +
                 ", birthTime=" + birthTime +
+                ", gmtCreate=" + gmtCreate +
+                ", gmtModified=" + gmtModified +
+                ", beDeleted=" + beDeleted +
                 '}';
     }
 
@@ -78,11 +84,11 @@ public class BeSharedItem {
         this.beSharedUserId = beSharedUserId;
     }
 
-    public Short getStatusCode() {
+    public Integer getStatusCode() {
         return statusCode;
     }
 
-    public void setStatusCode(Short statusCode) {
+    public void setStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
     }
 
@@ -92,5 +98,29 @@ public class BeSharedItem {
 
     public void setBirthTime(LocalDateTime birthTime) {
         this.birthTime = birthTime;
+    }
+
+    public LocalDateTime getGmtCreate() {
+        return gmtCreate;
+    }
+
+    public void setGmtCreate(LocalDateTime gmtCreate) {
+        this.gmtCreate = gmtCreate;
+    }
+
+    public LocalDateTime getGmtModified() {
+        return gmtModified;
+    }
+
+    public void setGmtModified(LocalDateTime gmtModified) {
+        this.gmtModified = gmtModified;
+    }
+
+    public Boolean getBeDeleted() {
+        return beDeleted;
+    }
+
+    public void setBeDeleted(Boolean beDeleted) {
+        this.beDeleted = beDeleted;
     }
 }

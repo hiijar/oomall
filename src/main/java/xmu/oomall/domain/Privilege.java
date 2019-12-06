@@ -1,28 +1,28 @@
 package xmu.good.oomall.domain;
+
 import java.time.LocalDateTime;
 import java.util.Objects;
-
 /**
  * @Author: 数据库与对象模型标准组
- * @Description:品牌信息
+ * @Description: 角色权限表
  * @Data:Created in 14:50 2019/11/29
  * @Modified By:
  **/
 
-public class Brand {
+public class Privilege {
     private Integer id;
     /**
-    *品牌名称
-    */
+     * 角色id
+     */
+    private Integer roleId;
+    /**
+     * 名字
+     */
     private String name;
     /**
-    *品牌描述
-    */
-    private String description;
-    /**
-    *品牌图片链接
+     * 角色描述
      */
-    private String picUrl;
+    private String description;
 
     private LocalDateTime gmtCreate;
     private LocalDateTime gmtModified;
@@ -30,11 +30,11 @@ public class Brand {
 
     @Override
     public String toString() {
-        return "Brand{" +
+        return "Privilege{" +
                 "id=" + id +
+                ", roleId=" + roleId +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", picUrl='" + picUrl + '\'' +
                 ", gmtCreate=" + gmtCreate +
                 ", gmtModified=" + gmtModified +
                 ", beDeleted=" + beDeleted +
@@ -45,8 +45,8 @@ public class Brand {
     public boolean equals(Object o) {
         if (this == o) {return true;}
         if (o == null || getClass() != o.getClass()) {return false;}
-        Brand brand = (Brand) o;
-        return Objects.equals(id, brand.id);
+        Privilege privilege = (Privilege) o;
+        return Objects.equals(id, privilege.id);
     }
 
     @Override
@@ -60,6 +60,14 @@ public class Brand {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(Integer roleId) {
+        this.roleId = roleId;
     }
 
     public String getName() {
@@ -76,14 +84,6 @@ public class Brand {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getPicUrl() {
-        return picUrl;
-    }
-
-    public void setPicUrl(String picUrl) {
-        this.picUrl = picUrl;
     }
 
     public LocalDateTime getGmtCreate() {
