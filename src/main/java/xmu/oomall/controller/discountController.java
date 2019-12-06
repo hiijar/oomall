@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 
 /**
  * @Author zhc
- * @create 2019/12/3 18:30
+ * @create 2019/12/4 8:30
  */
 
 @RestController
@@ -35,7 +35,7 @@ public interface discountController {
    */
     @GetMapping("/couponRule/{id}/user/{id}/coupon")
     @ApiOperation("查找某种优惠券被某个用户的领取情况/listuser")
-    public Object listuser(Integer userId, Integer couponId, Short status,
+    public Object listuser(Integer userId, Integer id, Short status,
                            @RequestParam(defaultValue = "1") Integer page,
                            @RequestParam(defaultValue = "10") Integer limit,
 //                         @Sort @RequestParam(defaultValue = "add_time") String sort,
@@ -116,15 +116,21 @@ public interface discountController {
      * 当前购物车下单商品订单可用优惠券
      *
      * @param userId
-     * @param cartId
-     * @param grouponRulesId
+     * @param cartIds
      * @return
      */
     @ApiOperation("用户查看当前购物车下单商品订单可用优惠券 /selectlist")
     @GetMapping("/availableCoupons")
-    public Object selectlist(@LoginUser Integer userId, Integer cartId, Integer grouponRulesId);
+    public Object selectlist(@LoginUser Integer userId, List<Integer> cartIds);
 
 
+	/**
+	 *Order模块调用Discount模块，计算使用优惠券后的价格
+	 */
+	@ApiOperation(value="计算使用优惠券后的价格/calcDiscount")
+	@GetMapping("/calcDiscount")
+	public Object calcDiscount(List<Integer> cartIds, Integer couponId);
+	
     /**
      * 优惠券领取
      *
@@ -136,45 +142,6 @@ public interface discountController {
     @PostMapping("")
     public Object receive(@LoginUser Integer userId, @RequestBody String body);
 
-    /**
-     * 优惠券兑换
-     *
-     * @param userId 用户ID
-     * @param body 请求内容， { code: xxx }
-     * @return 操作结果
-     */
-    @Deprecated
-    @PostMapping("exchange")
-    public Object exchange(@LoginUser Integer userId, @RequestBody String body);
-	
-	
-	
-	
-	/**
-	*获取团购规则列表详细信息
-	*/
-    @GetMapping("/grouponRules/{id}")
-    @ApiOperation(value = "获取团购规则列表详细信息/listRecord", notes = "获取团购规则列表详细信息")
-    public Object listRecord(String grouponId,
-                             @RequestParam(defaultValue = "1") Integer page,
-                             @RequestParam(defaultValue = "10") Integer limit,
-//                     @Sort @RequestParam(defaultValue = "add_time") String sort,
-//                     @Order @RequestParam(defaultValue = "desc") String order);
-					   @RequestParam(defaultValue = "add_time") String sort,
-                       @RequestParam(defaultValue = "desc") String order);
-
-	/**
-	*获取团购规则列表
-	*/
-    @GetMapping("/goods/{id}/grouponRules")
-    @ApiOperation(value = "获取团购规则列表/list", notes = "获取团购规则列表")
-    public Object list(@PathVariable Integer id, String goodsId,
-                       @RequestParam(defaultValue = "1") Integer page,
-                       @RequestParam(defaultValue = "10") Integer limit,
-//                     @Sort @RequestParam(defaultValue = "add_time") String sort,
-//                     @Order @RequestParam(defaultValue = "desc") String order);
-					   @RequestParam(defaultValue = "add_time") String sort,
-                       @RequestParam(defaultValue = "desc") String order);
 	
 	/**
 	*修改团购规则信息
@@ -217,12 +184,12 @@ public interface discountController {
      * 团购活动详情
      *
      * @param userId    用户ID
-     * @param grouponId 团购活动ID
+     * @param grouponRuleId 团购活动规则ID
      * @return 团购活动详情
      */
     @GetMapping("/grouponRules/{id}")
     @ApiOperation(value = "获取团购活动详情/detail", notes = "获取团购活动详情")
-    public Object detail(@LoginUser Integer userId, @NotNull Integer grouponId);
+    public Object detail(@LoginUser Integer userId, @NotNull Integer grouponRuleId);
 	
 	
 	
@@ -232,10 +199,11 @@ public interface discountController {
      * @param grouponId 团购活动ID
      * @return 操作结果
      */
-    @GetMapping("/grouponRules/{id}/joinResult")
+/*   @GetMapping("/grouponRules/{id}/joinResult")
     @ApiOperation(value = "参加团购操作结果/join", notes = "参加团购操作结果")
     public Object join(@NotNull Integer grouponId);
-	
+
+*/	
 	
     /**
      * 用户开团或入团情况
@@ -247,5 +215,7 @@ public interface discountController {
     @GetMapping("/grouponRules/{id}/joinInformation")
     @ApiOperation(value = "查看用户开团或入团情况/join", notes = "查看用户开团或入团情况")
     public Object my(@LoginUser Integer userId, @RequestParam(defaultValue = "0") Integer showType);
+	
+	
 	
 }
