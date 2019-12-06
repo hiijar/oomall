@@ -8,4 +8,5 @@
 - address添加一个收件人consignee属性
 - admin表添加一个role_id属性，表示他的角色（为了简化查询，设定是一个管理员一个角色，一个角色多个权限）
 - aftersales_service表里添加一个属性status，用来表示管理员的审核状态，0表示未审核，1表示审核通过，2表示审核拒绝
+- Share_item漏加了success_num属性已补全
 
