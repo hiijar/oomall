@@ -32,6 +32,7 @@ CREATE TABLE `address` (
   `city` varchar(31) DEFAULT NULL,
   `address_detail` varchar(255) DEFAULT NULL,
   `postal_code` varchar(15) DEFAULT NULL,
+  `consignee` varchar(63) DEFAULT NULL,
   `mobile` varchar(31) DEFAULT NULL,
   `is_default` tinyint(1) unsigned DEFAULT '0',
   `user_id` bigint(11) unsigned DEFAULT NULL,
@@ -49,6 +50,35 @@ CREATE TABLE `admin` (
   `gmt_modified` datetime(2) DEFAULT NULL,
   `username` varchar(31) DEFAULT NULL,
   `password` varchar(31) DEFAULT NULL,
+  `role_id` bigint(11) unsigned DEFAULT NULL,
+  `is_deleted` tinyint(1) unsigned DEFAULT '0',
+  PRIMARY KEY (`id`)
+);
+
+-- ----------------------------
+-- Table structure for role
+-- ----------------------------
+DROP TABLE IF EXISTS `role`;
+CREATE TABLE `role` (
+  `id` bigint(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(63) NOT NULL,
+  `gmt_create` datetime(2) DEFAULT NULL,
+  `gmt_modified` datetime(2) DEFAULT NULL,
+  `is_deleted` tinyint(1) unsigned DEFAULT '0',
+  PRIMARY KEY (`id`)
+);
+
+-- ----------------------------
+-- Table structure for privilege
+-- ----------------------------
+DROP TABLE IF EXISTS `privilege`;
+CREATE TABLE `privilege` (
+  `id` bigint(11) unsigned NOT NULL AUTO_INCREMENT,
+  `role_id` bigint(11) unsigned DEFAULT NULL,
+  `name` varchar(63) NOT NULL,
+  `description` varchar(1023) DEFAULT NULL,
+  `gmt_create` datetime(2) DEFAULT NULL,
+  `gmt_modified` datetime(2) DEFAULT NULL,
   `is_deleted` tinyint(1) unsigned DEFAULT '0',
   PRIMARY KEY (`id`)
 );
@@ -61,7 +91,7 @@ CREATE TABLE `aftersales_service` (
   `id` bigint(11) unsigned NOT NULL AUTO_INCREMENT,
   `gmt_create` datetime(2) DEFAULT NULL,
   `gmt_modified` datetime(2) DEFAULT NULL,
-  `id_deleted` tinyint(1) unsigned DEFAULT '0',
+  `is_deleted` tinyint(1) unsigned DEFAULT '0',
   `goods_type` int(8) DEFAULT NULL,
   `apply_time` datetime(2) DEFAULT NULL,
   `apply_reason` varchar(255) DEFAULT NULL,
@@ -83,6 +113,9 @@ CREATE TABLE `be_shared_item` (
   `status` smallint(2) DEFAULT NULL,
   `birthtime` datetime DEFAULT NULL,
   `be_shared_user_id` bigint(11) unsigned DEFAULT NULL,
+  `gmt_create` datetime(2) DEFAULT NULL,
+  `gmt_modified` datetime(2) DEFAULT NULL,
+  `is_deleted` tinyint(1) unsigned DEFAULT '0',
   PRIMARY KEY (`id`)
 );
 
@@ -93,7 +126,7 @@ DROP TABLE IF EXISTS `brand`;
 CREATE TABLE `brand` (
   `id` bigint(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(31) DEFAULT NULL,
-  `describe` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
   `pic_url` varchar(255) DEFAULT NULL,
   `gmt_create` datetime(2) DEFAULT NULL,
   `gmt_modified` datetime(2) DEFAULT NULL,
@@ -110,6 +143,7 @@ CREATE TABLE `cart_item` (
   `user_id` bigint(11) unsigned DEFAULT NULL,
   `product_id` bigint(11) unsigned DEFAULT NULL,
   `is_check` tinyint(1) unsigned DEFAULT '0',
+  `number` smallint(5) unsigned DEFAULT NULL, 
   `gmt_create` datetime(2) DEFAULT NULL,
   `gmt_modified` datetime(2) DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -246,7 +280,7 @@ CREATE TABLE `goods` (
   `gmt_create` datetime(2) DEFAULT NULL,
   `gmt_modified` datetime(2) DEFAULT NULL,
   `name` varchar(31) DEFAULT NULL,
-  `good_sn` varchar(63) DEFAULT NULL,
+  `goods_sn` varchar(63) DEFAULT NULL,
   `short_name` varchar(31) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
   `brief` varchar(63) DEFAULT NULL,
@@ -255,7 +289,7 @@ CREATE TABLE `goods` (
   `status` tinyint(2) unsigned DEFAULT NULL,
   `share_url` varchar(255) DEFAULT NULL,
   `gallery` varchar(5000) DEFAULT NULL,
-  `goods_category_ids` varchar(255) DEFAULT NULL,
+  `goods_category_id` bigint(11) unsigned DEFAULT NULL,
   `brand_id` bigint(11) unsigned DEFAULT NULL,
   `is_deleted` tinyint(1) unsigned DEFAULT '0',
   `weight` decimal(10,2) DEFAULT NULL,
@@ -353,7 +387,7 @@ CREATE TABLE `order_item` (
   `id` bigint(11) unsigned NOT NULL,
   `order_id` bigint(11) unsigned DEFAULT NULL,
   `item_type` varchar(255) DEFAULT NULL,
-  `item_status` tinyint(1) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL,
   `number` int(11) unsigned DEFAULT NULL,
   `price` decimal(10,2) DEFAULT NULL,
   `deal_price` decimal(10,2) DEFAULT NULL,
@@ -395,7 +429,7 @@ CREATE TABLE `product` (
   `specifications` varchar(1000) DEFAULT NULL,
   `goods_id` bigint(11) unsigned DEFAULT NULL,
   `price` decimal(10,2) DEFAULT NULL,
-  `safty_stock` int(11) unsigned DEFAULT NULL,
+  `safety_stock` int(11) unsigned DEFAULT NULL,
   `gmt_create` datetime(2) DEFAULT NULL,
   `gmt_modified` datetime(2) DEFAULT NULL,
   `is_deleted` tinyint(1) unsigned DEFAULT '0',
@@ -411,7 +445,7 @@ CREATE TABLE `region` (
   `pid` bigint(11) unsigned NOT NULL,
   `name` varchar(120) DEFAULT '',
   `type` tinyint(3) DEFAULT '0',
-  `post_code` varchar(11) DEFAULT '0',
+  `postal_code` varchar(11) DEFAULT '0',
   PRIMARY KEY (`id`)
 );
 
@@ -452,10 +486,10 @@ CREATE TABLE `share_rule` (
 DROP TABLE IF EXISTS `special_freight`;
 CREATE TABLE `special_freight` (
   `id` bigint(11) unsigned NOT NULL AUTO_INCREMENT,
-  `first_x_piece` smallint(5) unsigned DEFAULT NULL,
-  `first_x_piece_price` decimal(10,2) DEFAULT NULL,
-  `continue_x_piece` smallint(5) unsigned DEFAULT NULL,
-  `continue_x_piece_price` decimal(10,2) DEFAULT NULL,
+  `first_num_piece` smallint(5) unsigned DEFAULT NULL,
+  `first_num_piece_price` decimal(10,2) DEFAULT NULL,
+  `continue_num_piece` smallint(5) unsigned DEFAULT NULL,
+  `continue_num_piece_price` decimal(10,2) DEFAULT NULL,
   `gmt_create` datetime(2) DEFAULT NULL,
   `gmt_modified` datetime(2) DEFAULT NULL,
   `is_deleted` tinyint(1) unsigned DEFAULT '0',
