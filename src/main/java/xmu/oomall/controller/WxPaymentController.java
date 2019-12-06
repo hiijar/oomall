@@ -13,8 +13,8 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
-
-public class WxPaymentController {
+@RestController
+public interface WxPaymentController {
 
     /*
      * @Return:
@@ -27,10 +27,7 @@ public class WxPaymentController {
                                @ApiParam(name="payChannel",value="付款渠道",required=true) Integer payChannel,
                                @ApiParam(name="beginTime",value="付款的开始时间",required=false) LocalDateTime beginTime,
                                @ApiParam(name="endTime",value="付款的结束时间",required=false) LocalDateTime endTime,
-                               @ApiParam(name="orderId",value="商户订单号",required=true)Integer orderId) {
-        Map<String, Object> unifiedOrderRet = new HashMap<String, Object>();
-        return ResponseUtil.ok(unifiedOrderRet);
-    }
+                               @ApiParam(name="orderId",value="商户订单号",required=true)Integer orderId);
 
 
 
@@ -38,10 +35,6 @@ public class WxPaymentController {
     @ApiOperation("调用requestPayment()发起微信支付")
     public Object requestPayment(@ApiParam(name="timeStamp",value="时间戳",required=true) String timeStamp,
                                  @ApiParam(name="prepay_id",value="统一下单接口返回的 prepay_id 参数值",required=true) @PathVariable("id") String prepay_id,
-                                 @ApiParam(name="orderId",value="商户订单号",required=true) String orderId){
-        // TODO: 调用payment类的updatePayment（）修改订单状态
-        Object obj = new Object();
-        return ResponseUtil.ok(obj);
-    }
+                                 @ApiParam(name="orderId",value="商户订单号",required=true) String orderId);
 
 }

@@ -45,4 +45,8 @@ public interface FeightController {
     @DeleteMapping("/defaultFreights/{id}")
     @ApiOperation(value = "修改默认运费规则", notes = "")
     public Object updateDefaultFreight(@PathVariable("defaultFreightsId") String defaultFreightsId);
+
+    @GetMapping("/freight/{orderitemid}")
+    @ApiOperation(value = "获取运费", notes = "")
+    public Object getFreight();
 }
