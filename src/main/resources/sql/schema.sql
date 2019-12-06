@@ -98,6 +98,7 @@ CREATE TABLE `aftersales_service` (
   `end_time` datetime(2) DEFAULT NULL,
   `type` int(8) DEFAULT NULL,
   `is_applied` tinyint(1) unsigned DEFAULT '0',
+  `status` tinyint(2) unsigned DEFAULT '0',
   `number` int(8) unsigned DEFAULT '1',
   `order_item_id` bigint(11) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -110,7 +111,7 @@ DROP TABLE IF EXISTS `be_shared_item`;
 CREATE TABLE `be_shared_item` (
   `id` bigint(11) unsigned NOT NULL AUTO_INCREMENT,
   `sharer_id` bigint(11) unsigned DEFAULT NULL,
-  `status` smallint(2) DEFAULT NULL,
+  `status` tinyint(2) DEFAULT NULL,
   `birthtime` datetime DEFAULT NULL,
   `be_shared_user_id` bigint(11) unsigned DEFAULT NULL,
   `gmt_create` datetime(2) DEFAULT NULL,
