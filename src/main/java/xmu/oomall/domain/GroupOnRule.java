@@ -10,7 +10,7 @@ import java.util.Objects;
  * @Modified By:
  **/
 
-public class GroupOnRule {
+public class GrouponRule {
     private Integer id;
     /**
      *团购开始时间
