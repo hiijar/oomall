@@ -23,7 +23,7 @@ public class Payment {
     /**
      * 是否付款成功,0不成功，1成功
      */
-    private Boolean isSuccessful;
+    private Boolean beSuccessful;
     /**
      * 付款时间
      */
@@ -54,7 +54,7 @@ public class Payment {
                 "id=" + id +
                 ", actualPrice=" + actualPrice +
                 ", payChannel=" + payChannel +
-                ", isSuccessful=" + isSuccessful +
+                ", beSuccessful=" + beSuccessful +
                 ", payTime=" + payTime +
                 ", paySn='" + paySn + '\'' +
                 ", beginTime=" + beginTime +
@@ -103,12 +103,12 @@ public class Payment {
         this.payChannel = payChannel;
     }
 
-    public Boolean getSuccessful() {
-        return isSuccessful;
+    public Boolean getBeSuccessful() {
+        return beSuccessful;
     }
 
-    public void setSuccessful(Boolean successful) {
-        isSuccessful = successful;
+    public void setBeSuccessful(Boolean beSuccessful) {
+        this.beSuccessful = beSuccessful;
     }
 
     public LocalDateTime getPayTime() {
