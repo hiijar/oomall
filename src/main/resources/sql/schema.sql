@@ -109,6 +109,7 @@ CREATE TABLE `aftersales_service` (
 DROP TABLE IF EXISTS `be_shared_item`;
 CREATE TABLE `be_shared_item` (
   `id` bigint(11) unsigned NOT NULL AUTO_INCREMENT,
+  `goods_id` bigint(11) unsigned DEFAULT NULL,
   `sharer_id` bigint(11) unsigned DEFAULT NULL,
   `status` tinyint(2) DEFAULT NULL,
   `birthtime` datetime DEFAULT NULL,

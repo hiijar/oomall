@@ -29,6 +29,10 @@ public class BeSharedItem {
      * 分享成功时的时间
      */
     private LocalDateTime birthTime;
+    /**
+     * 分享的商品id
+     */
+    private Integer goodsId;
     private LocalDateTime gmtCreate;
     private LocalDateTime gmtModified;
     private Boolean beDeleted;
@@ -41,6 +45,7 @@ public class BeSharedItem {
                 ", beSharedUserId=" + beSharedUserId +
                 ", statusCode=" + statusCode +
                 ", birthTime=" + birthTime +
+                ", goodsId=" + goodsId +
                 ", gmtCreate=" + gmtCreate +
                 ", gmtModified=" + gmtModified +
                 ", beDeleted=" + beDeleted +
@@ -122,5 +127,13 @@ public class BeSharedItem {
 
     public void setBeDeleted(Boolean beDeleted) {
         this.beDeleted = beDeleted;
+    }
+
+    public Integer getGoodsId() {
+        return goodsId;
+    }
+
+    public void setGoodsId(Integer goodsId) {
+        this.goodsId = goodsId;
     }
 }
