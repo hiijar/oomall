@@ -27,16 +27,15 @@ CREATE TABLE `address` (
   `gmt_create` datetime(2) DEFAULT NULL,
   `gmt_modified` datetime(2) DEFAULT NULL,
   `is_deleted` tinyint(1) unsigned DEFAULT '0',
-  `county` varchar(31) DEFAULT NULL,
-  `province` varchar(31) DEFAULT NULL,
-  `city` varchar(31) DEFAULT NULL,
+  `county_id` bigint(11) unsigned DEFAULT NULL,
+  `province_id` bigint(11) unsigned DEFAULT NULL,
+  `city_id` bigint(11) unsigned DEFAULT NULL,
   `address_detail` varchar(255) DEFAULT NULL,
   `postal_code` varchar(15) DEFAULT NULL,
   `consignee` varchar(63) DEFAULT NULL,
   `mobile` varchar(31) DEFAULT NULL,
   `is_default` tinyint(1) unsigned DEFAULT '0',
   `user_id` bigint(11) unsigned DEFAULT NULL,
-  `county_id` bigint(11) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
 

@@ -15,7 +15,7 @@ public class Log {
     /**
      * 进行该操作的管理员ID
      */
-    private Integer adminIdId;
+    private Integer adminId;
     /**
      * 操作者的IP地址
      */
@@ -38,13 +38,12 @@ public class Log {
     private Integer actionId;
     private LocalDateTime gmtCreate;
     private LocalDateTime gmtModified;
-    private Boolean beDeleted;
 
     @Override
     public String toString() {
         return "Log{" +
                 "id=" + id +
-                ", adminIdId=" + adminIdId +
+                ", adminId=" + adminId +
                 ", ip='" + ip + '\'' +
                 ", type=" + type +
                 ", action='" + action + '\'' +
@@ -52,7 +51,6 @@ public class Log {
                 ", actionId=" + actionId +
                 ", gmtCreate=" + gmtCreate +
                 ", gmtModified=" + gmtModified +
-                ", beDeleted=" + beDeleted +
                 '}';
     }
 
@@ -77,12 +75,12 @@ public class Log {
         this.id = id;
     }
 
-    public Integer getAdminIdId() {
-        return adminIdId;
+    public Integer getAdminId() {
+        return adminId;
     }
 
-    public void setAdminIdId(Integer adminIdId) {
-        this.adminIdId = adminIdId;
+    public void setAdminId(Integer adminId) {
+        this.adminId = adminId;
     }
 
     public String getIp() {
@@ -99,14 +97,6 @@ public class Log {
 
     public void setType(Integer type) {
         this.type = type;
-    }
-
-    public Boolean getBeDeleted() {
-        return beDeleted;
-    }
-
-    public void setBeDeleted(Boolean beDeleted) {
-        this.beDeleted = beDeleted;
     }
 
     public String getAction() {

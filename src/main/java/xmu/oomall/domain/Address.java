@@ -1,4 +1,4 @@
-package xmu.good.oomall.domain;
+package xmu.good.oomall.domain.ext;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -20,19 +20,15 @@ public class Address {
     /**
      * 特定地区id（对应行政区域表）
      */
-    private String cityId;
+    private Integer cityId;
     /**
      * 省份
      */
-    private String province;
-    /**
-     * 城市
-     */
-    private String city;
+    private Integer provinceId;
     /**
      * 县区
      */
-    private String county;
+    private Integer countyId;
     /**
      * 地址详情
      */
@@ -64,10 +60,9 @@ public class Address {
         return "Address{" +
                 "id=" + id +
                 ", userId='" + userId + '\'' +
-                ", cityId='" + cityId + '\'' +
-                ", province='" + province + '\'' +
-                ", city='" + city + '\'' +
-                ", county='" + county + '\'' +
+                ", cityId=" + cityId +
+                ", provinceId=" + provinceId +
+                ", countyId=" + countyId +
                 ", addressDetail='" + addressDetail + '\'' +
                 ", mobile='" + mobile + '\'' +
                 ", postalCode='" + postalCode + '\'' +
@@ -108,36 +103,28 @@ public class Address {
         this.userId = userId;
     }
 
-    public String getCityId() {
+    public Integer getCityId() {
         return cityId;
     }
 
-    public void setCityId(String cityId) {
+    public void setCityId(Integer cityId) {
         this.cityId = cityId;
     }
 
-    public String getProvince() {
-        return province;
+    public Integer getProvinceId() {
+        return provinceId;
     }
 
-    public void setProvince(String province) {
-        this.province = province;
+    public void setProvinceId(Integer provinceId) {
+        this.provinceId = provinceId;
     }
 
-    public String getCity() {
-        return city;
+    public Integer getCountyId() {
+        return countyId;
     }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getCounty() {
-        return county;
-    }
-
-    public void setCounty(String county) {
-        this.county = county;
+    public void setCountyId(Integer countyId) {
+        this.countyId = countyId;
     }
 
     public String getAddressDetail() {
