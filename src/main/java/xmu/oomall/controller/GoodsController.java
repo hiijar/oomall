@@ -74,7 +74,7 @@ public interface GoodsController {
     @ApiOperation(value="查看所有一级分类/l1")
     public Object listOneLevelGoodsCategory() ;
 
-        /**
+    /**
      * 查询商品
      *
      * @param goodsSn
@@ -94,9 +94,6 @@ public interface GoodsController {
                        @Order @RequestParam(defaultValue = "desc") String order);
 
 
-    @GetMapping("/goods/catAndBrand")
-    @ApiOperation(value = "获取分类和品牌/catAndBrand")
-    public Object listCatAndBrands();
 
     /**
      * 编辑商品
@@ -116,7 +113,7 @@ public interface GoodsController {
      */
     @DeleteMapping("/goods/{id}")
     @ApiOperation(value = "根据id删除商品信息/delete", notes = "根据id删除商品信息")
-    public Object deleteGoodsById(@RequestBody Goods goods);
+    public Object deleteGoodsById(@PathVariable Integer id);
 
     /**
      * 添加商品
