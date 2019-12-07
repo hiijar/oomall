@@ -19,7 +19,7 @@ public class Order {
     /**
      * 该订单对于与be_shared_item表id
      */
-    private Integer beSharedItemIds;
+    private String beSharedItemIds;
     /**
      * 订单序号
      */
@@ -155,11 +155,11 @@ public class Order {
         this.userId = userId;
     }
 
-    public Integer getBeSharedItemIds() {
+    public String getBeSharedItemIds() {
         return beSharedItemIds;
     }
 
-    public void setBeSharedItemIds(Integer beSharedItemIds) {
+    public void setBeSharedItemIds(String beSharedItemIds) {
         this.beSharedItemIds = beSharedItemIds;
     }
 
