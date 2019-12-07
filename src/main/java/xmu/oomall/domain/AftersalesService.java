@@ -48,6 +48,10 @@ public class AftersalesService {
      * 管理员处理状态,有三个状态：未审核：0 审核通过：1 审核拒绝：2
      */
     private Integer statusCode;
+    /**
+     * 用户ID
+     */
+    private Integer userId;
     private LocalDateTime gmtCreate;
     private LocalDateTime gmtModified;
     private Boolean beDeleted;
@@ -65,6 +69,7 @@ public class AftersalesService {
                 ", number=" + number +
                 ", orderItemId=" + orderItemId +
                 ", statusCode=" + statusCode +
+                ", userId=" + userId +
                 ", gmtCreate=" + gmtCreate +
                 ", gmtModified=" + gmtModified +
                 ", beDeleted=" + beDeleted +
@@ -186,5 +191,13 @@ public class AftersalesService {
 
     public void setStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 }

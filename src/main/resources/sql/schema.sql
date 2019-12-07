@@ -88,6 +88,7 @@ CREATE TABLE `privilege` (
 DROP TABLE IF EXISTS `aftersales_service`;
 CREATE TABLE `aftersales_service` (
   `id` bigint(11) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(11) unsigned DEFAULT NULL,
   `gmt_create` datetime(2) DEFAULT NULL,
   `gmt_modified` datetime(2) DEFAULT NULL,
   `is_deleted` tinyint(1) unsigned DEFAULT '0',
