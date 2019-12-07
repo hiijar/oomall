@@ -55,7 +55,7 @@ public class GrouponRule {
     public boolean equals(Object o) {
         if (this == o) {return true;}
         if (o == null || getClass() != o.getClass()) {return false;}
-        GroupOnRule that = (GroupOnRule) o;
+        GrouponRule that = (GrouponRule) o;
         return Objects.equals(id, that.id);
     }
 
