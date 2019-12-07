@@ -384,7 +384,7 @@ CREATE TABLE `order` (
 -- ----------------------------
 DROP TABLE IF EXISTS `order_item`;
 CREATE TABLE `order_item` (
-  `id` bigint(11) unsigned NOT NULL,
+  `id` bigint(11) unsigned NOT NULL AUTO_INCREMENT,
   `order_id` bigint(11) unsigned DEFAULT NULL,
   `item_type` varchar(255) DEFAULT NULL,
   `status` tinyint(1) DEFAULT NULL,
