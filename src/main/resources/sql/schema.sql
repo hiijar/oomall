@@ -200,6 +200,7 @@ CREATE TABLE `coupon` (
   `gmt_create` datetime(2) DEFAULT NULL,
   `gmt_modified` datetime(2) DEFAULT NULL,
   `is_deleted` tinyint(1) unsigned DEFAULT '0',
+  `status` tinyint(1) unsigned DEFAULT '0',
   PRIMARY KEY (`id`)
 );
 

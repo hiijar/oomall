@@ -16,7 +16,7 @@ public class CouponRule {
     /**
      * 优惠券规则名称
      */
-    private Integer name;
+    private String name;
     /**
      * 优惠券简介
      */
@@ -104,8 +104,12 @@ public class CouponRule {
         this.id = id;
     }
 
-    public Integer getName() {
+    public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getBrief() {
@@ -210,9 +214,5 @@ public class CouponRule {
 
     public void setBeDeleted(Boolean beDeleted) {
         this.beDeleted = beDeleted;
-    }
-
-    public void setName(Integer name) {
-        this.name = name;
     }
 }

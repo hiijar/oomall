@@ -31,9 +31,9 @@ public class AftersalesService {
     /**
      * 售后类型，0退货，1换货
      */
-    private Boolean type;
+    private Integer type;
     /**
-     * 该申请是否被接受，0代表否，1代表是
+     * 是否申请
      */
     private Boolean beApplied;
     /**
@@ -129,11 +129,11 @@ public class AftersalesService {
         this.endTime = endTime;
     }
 
-    public Boolean getType() {
+    public Integer getType() {
         return type;
     }
 
-    public void setType(Boolean type) {
+    public void setType(Integer type) {
         this.type = type;
     }
 

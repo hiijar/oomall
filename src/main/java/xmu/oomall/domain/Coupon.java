@@ -44,6 +44,10 @@ public class Coupon {
      * 本张优惠券的图片
      */
     private String picUrl;
+    /**
+     * 优惠券是否已经使用
+     */
+    private Boolean statusCode;
     private LocalDateTime gmtCreate;
     private LocalDateTime gmtModified;
     private Boolean beDeleted;
@@ -60,6 +64,7 @@ public class Coupon {
                 ", usedTime=" + usedTime +
                 ", name='" + name + '\'' +
                 ", picUrl='" + picUrl + '\'' +
+                ", statusCode=" + statusCode +
                 ", gmtCreate=" + gmtCreate +
                 ", gmtModified=" + gmtModified +
                 ", beDeleted=" + beDeleted +
@@ -173,5 +178,13 @@ public class Coupon {
 
     public void setBeDeleted(Boolean beDeleted) {
         this.beDeleted = beDeleted;
+    }
+
+    public Boolean getStatusCode() {
+        return statusCode;
+    }
+
+    public void setStatusCode(Boolean statusCode) {
+        this.statusCode = statusCode;
     }
 }
