@@ -20,3 +20,4 @@
 ### 2019.12.8 更新日志
 
 - couponRule里删除原本的discount和limit属性，改为strategy的json字符串，以满足多方式的优惠策略的实现
+- 补充属性说明，售后中的goods_type指对应的order_item中的商品是正常的、团购的还是预售的
