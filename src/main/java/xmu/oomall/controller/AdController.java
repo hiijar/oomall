@@ -13,7 +13,7 @@ import javax.validation.constraints.NotNull;
  */
 
 @RestController
-@RequestMapping("/ads")
+@RequestMapping("")
 public interface AdController {
 	
     @GetMapping("/admins/ads")

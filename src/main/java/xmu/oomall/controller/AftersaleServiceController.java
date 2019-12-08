@@ -13,19 +13,19 @@ import javax.validation.constraints.NotNull;
  */
 
 @RestController
-@RequestMapping("/aftersaleService")
+@RequestMapping("")
 public interface AftersaleController {
 
-	@GetMapping("/afterSaleService")
-    @ApiOperation(value="管理员查询售后服务列表  /list")
+	@GetMapping("/admin/afterSaleServices")
+    @ApiOperation(value="管理员查询售后服务列表(条件搜索)  ")
     public Object adminFindAftersaleServiceList();
 
-	@GetMapping("/afterSaleService/{id}")
+	@GetMapping("/admin/afterSaleServices/{id}")
     @ApiOperation(value="管理员查询某一售后服务具体信息  ")
     public Object adminFindAftersaleService();
 	
-	@PutMapping("/afterSaleService/{id}")
-    @ApiOperation(value="管理员修改售后服务的信息  /update")
+	@PutMapping("/admin/afterSaleServices/{id}")
+    @ApiOperation(value="管理员修改售后服务的信息  ")
     public Object adminUpdateAftersaleService();
 	
 	@GetMapping("/afterSaleService")
@@ -45,6 +45,6 @@ public interface AftersaleController {
     public Object userUpdateAftersaleService();
 	
 	@DeleteMapping("/afterSaleService/{id}")
-    @ApiOperation(value="用户删除某一个售后服务的信息  /delete")
+    @ApiOperation(value="用户删除某一个售后服务的信息(逻辑删除)  /delete")
     public Object userDeleteAftersaleService();
 }
