@@ -22,7 +22,10 @@ public class DefaultPieceFreight {
      * 单位比例
      */
     private BigDecimal unitRate;
-
+    /**
+     * 快递送到需要的时间（次日 或者 1-2天等 ）
+     */
+    private String requireDays;
     private LocalDateTime gmtCreate;
     private LocalDateTime gmtModified;
     private Boolean beDeleted;
@@ -33,6 +36,7 @@ public class DefaultPieceFreight {
                 "id=" + id +
                 ", destination='" + destination + '\'' +
                 ", unitRate=" + unitRate +
+                ", requireDays='" + requireDays + '\'' +
                 ", gmtCreate=" + gmtCreate +
                 ", gmtModified=" + gmtModified +
                 ", beDeleted=" + beDeleted +
@@ -98,5 +102,13 @@ public class DefaultPieceFreight {
 
     public void setBeDeleted(Boolean beDeleted) {
         this.beDeleted = beDeleted;
+    }
+
+    public String getRequireDays() {
+        return requireDays;
+    }
+
+    public void setRequireDays(String requireDays) {
+        this.requireDays = requireDays;
     }
 }

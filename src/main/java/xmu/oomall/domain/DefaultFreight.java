@@ -43,7 +43,7 @@ public class DefaultFreight {
     /**
      * 快递送到需要的时间（次日 或者 1-2天等 ）
      */
-    private Integer requireDays;
+    private String requireDays;
     private LocalDateTime gmtCreate;
     private LocalDateTime gmtModified;
     private Boolean beDeleted;
@@ -143,11 +143,11 @@ public class DefaultFreight {
         this.over300Price = over300Price;
     }
 
-    public Integer getRequireDays() {
+    public String getRequireDays() {
         return requireDays;
     }
 
-    public void setRequireDays(Integer requireDays) {
+    public void setRequireDays(String requireDays) {
         this.requireDays = requireDays;
     }
 

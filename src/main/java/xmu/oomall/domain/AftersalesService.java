@@ -49,6 +49,10 @@ public class AftersalesService {
      */
     private Integer statusCode;
     /**
+     * 产品ID
+     */
+    private Integer productId;
+    /**
      * 用户ID
      */
     private Integer userId;
@@ -69,6 +73,7 @@ public class AftersalesService {
                 ", number=" + number +
                 ", orderItemId=" + orderItemId +
                 ", statusCode=" + statusCode +
+                ", productId=" + productId +
                 ", userId=" + userId +
                 ", gmtCreate=" + gmtCreate +
                 ", gmtModified=" + gmtModified +
@@ -199,5 +204,13 @@ public class AftersalesService {
 
     public void setUserId(Integer userId) {
         this.userId = userId;
+    }
+
+    public Integer getProductId() {
+        return productId;
+    }
+
+    public void setProductId(Integer productId) {
+        this.productId = productId;
     }
 }

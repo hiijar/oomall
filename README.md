@@ -20,4 +20,13 @@
 ### 2019.12.8 更新日志
 
 - couponRule里删除原本的discount和limit属性，改为strategy的json字符串，以满足多方式的优惠策略的实现
+
 - 补充属性说明，售后中的goods_type指对应的order_item中的商品是正常的、团购的还是预售的
+
+- 售后表新增属性product_id（针对组合产品单换）
+
+- Default_piece_freight表补全数据库漏掉的属性：预计送达时长 
+
+- 新增presale_rule表，用于存储预售的内容（预售针对具体产品）
+
+  

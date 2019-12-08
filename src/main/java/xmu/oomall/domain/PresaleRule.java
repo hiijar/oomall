@@ -1,50 +1,57 @@
 package xmu.good.oomall.domain;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
 /**
  * @Author: 数据库与对象模型标准组
- * @Description:团购规则信息
- * @Data:Created in 14:50 2019/11/29
+ * @Description: 预售信息表
+ * @Date: Created in 16:50 2019/12/08
  * @Modified By:
  **/
 
-public class GrouponRule {
+public class PresaleRule {
     private Integer id;
     /**
-     *团购开始时间
+     *预售开始时间
      */
     private LocalDateTime startTime;
     /**
-     *团购结束时间
+     *预售结束时间
      */
     private LocalDateTime endTime;
     /**
-    *判断团购是否还在进行中
-    */
+     *判断预售是否还在进行中
+     */
     private Boolean statusCode;
     /**
-    * 团购等级（满多少人组团多少折扣）
-    */
-    private String grouponLevelStrategy;
+     * 预售策略
+     */
+    private String strategy;
     /**
-    *团购商品id
-    */
-    private Integer goodsId;
+     *预售产品id
+     */
+    private Integer productId;
+    /**
+     *定金
+     */
+    private BigDecimal deposit;
+
     private LocalDateTime gmtCreate;
     private LocalDateTime gmtModified;
     private Boolean beDeleted;
 
     @Override
     public String toString() {
-        return "GrouponRule{" +
+        return "PresaleRule{" +
                 "id=" + id +
                 ", startTime=" + startTime +
                 ", endTime=" + endTime +
                 ", statusCode=" + statusCode +
-                ", grouponLevelStrategy='" + grouponLevelStrategy + '\'' +
-                ", goodsId=" + goodsId +
+                ", strategy='" + strategy + '\'' +
+                ", productId=" + productId +
+                ", deposit=" + deposit +
                 ", gmtCreate=" + gmtCreate +
                 ", gmtModified=" + gmtModified +
                 ", beDeleted=" + beDeleted +
@@ -55,7 +62,7 @@ public class GrouponRule {
     public boolean equals(Object o) {
         if (this == o) {return true;}
         if (o == null || getClass() != o.getClass()) {return false;}
-        GrouponRule that = (GrouponRule) o;
+        PresaleRule that = (PresaleRule) o;
         return Objects.equals(id, that.id);
     }
 
@@ -96,20 +103,28 @@ public class GrouponRule {
         this.statusCode = statusCode;
     }
 
-    public String getGrouponLevelStrategy() {
-        return grouponLevelStrategy;
+    public String getStrategy() {
+        return strategy;
     }
 
-    public void setGrouponLevelStrategy(String grouponLevelStrategy) {
-        this.grouponLevelStrategy = grouponLevelStrategy;
+    public void setStrategy(String strategy) {
+        this.strategy = strategy;
     }
 
-    public Integer getGoodsId() {
-        return goodsId;
+    public Integer getProductId() {
+        return productId;
     }
 
-    public void setGoodsId(Integer goodsId) {
-        this.goodsId = goodsId;
+    public void setProductId(Integer productId) {
+        this.productId = productId;
+    }
+
+    public BigDecimal getDeposit() {
+        return deposit;
+    }
+
+    public void setDeposit(BigDecimal deposit) {
+        this.deposit = deposit;
     }
 
     public LocalDateTime getGmtCreate() {
