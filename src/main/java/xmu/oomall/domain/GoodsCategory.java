@@ -1,7 +1,5 @@
 package xmu.good.oomall.domain;
 
-import org.apache.ibatis.type.Alias;
-
 import javax.annotation.sql.DataSourceDefinition;
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -13,7 +11,6 @@ import java.util.Objects;
  * @Modified By:
  **/
 
-@Alias("goodsCategory")
 public class GoodsCategory {
     private Integer id;
     /**

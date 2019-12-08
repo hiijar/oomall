@@ -1,7 +1,5 @@
 package xmu.good.oomall.domain;
 
-import org.apache.ibatis.type.Alias;
-
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -12,7 +10,6 @@ import java.util.Objects;
  * @Data:Created in 14:50 2019/11/29
  * @Modified By:
  **/
-@Alias("goods")
 public class Goods {
 
     private Integer id;
