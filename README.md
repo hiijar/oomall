@@ -37,3 +37,6 @@
 - goods_category增加pic_url属性
 - 修复order中ship channel的类型为字符串（尽管可能后续用不到）
 - user补全原本漏掉的一个getUserLevel的方法
+- user增加role_id，区分不同角色的用户，来做权限验证（说明：privilege表中的name可以用来存储url，具体实现各组可自定义）
+- **添加data.sql文件用于插入基本数据**
+

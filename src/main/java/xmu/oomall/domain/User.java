@@ -65,6 +65,10 @@ public class User {
      * 微信会话Key
      */
     private String sessionKey;
+    /**
+     * 用户权限id
+     */
+    private Integer roleId;
 
     private LocalDateTime gmtCreate;
     private LocalDateTime gmtModified;
@@ -87,6 +91,7 @@ public class User {
                 ", userLevel=" + userLevel +
                 ", wxOpenId='" + wxOpenId + '\'' +
                 ", sessionKey='" + sessionKey + '\'' +
+                ", roleId=" + roleId +
                 ", gmtCreate=" + gmtCreate +
                 ", gmtModified=" + gmtModified +
                 ", beDeleted=" + beDeleted +
@@ -240,5 +245,13 @@ public class User {
 
     public Integer getUserLevel() {
         return userLevel;
+    }
+
+    public Integer getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(Integer roleId) {
+        this.roleId = roleId;
     }
 }
