@@ -33,3 +33,7 @@
 ### 2019.12.9 更新日志
 
 - goods新增price属性用于显示该商品的最低价格
+- goods的status从Bool变更为int类型
+- goods_category增加pic_url属性
+- 修复order中ship channel的类型为字符串（尽管可能后续用不到）
+- user补全原本漏掉的一个getUserLevel的方法

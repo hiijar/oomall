@@ -237,4 +237,8 @@ public class User {
     public void setBeDeleted(Boolean beDeleted) {
         this.beDeleted = beDeleted;
     }
+
+    public Integer getUserLevel() {
+        return userLevel;
+    }
 }

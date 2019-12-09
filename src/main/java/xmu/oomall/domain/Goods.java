@@ -43,9 +43,9 @@ public class Goods {
     */
     private String detail;
     /**
-    * 0：上架 1：下架
+    * 0：上架 1：下架 2: 最新  （具体看数据字典）
     */
-    private Boolean statusCode;
+    private Integer statusCode;
     /**
     * 分享链接
     */
@@ -207,11 +207,11 @@ public class Goods {
         this.detail = detail;
     }
 
-    public Boolean getStatusCode() {
+    public Integer getStatusCode() {
         return statusCode;
     }
 
-    public void setStatusCode(Boolean statusCode) {
+    public void setStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
     }
 

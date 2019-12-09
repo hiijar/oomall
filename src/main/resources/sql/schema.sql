@@ -315,6 +315,7 @@ CREATE TABLE `goods_category` (
   `gmt_create` datetime(2) DEFAULT NULL,
   `gmt_modified` datetime(2) DEFAULT NULL,
   `is_deleted` tinyint(1) unsigned DEFAULT '1',
+  `pic_url` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
 
