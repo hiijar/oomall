@@ -1,6 +1,12 @@
-/*
+package xmu.oomall.discount.controller;/*
 package 和 import 需要根据项目导入
  */
+
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+import xmu.oomall.domain.cart.CartItem;
+
+import java.util.List;
 
 /**
  * 用户购物车服务
@@ -8,7 +14,6 @@ package 和 import 需要根据项目导入
 @RestController
 @RequestMapping("")// 购物车
 @Validated
-@Api()
 public interface CartController {
 
     /**
@@ -18,8 +23,9 @@ public interface CartController {
      * @return 用户购物车信息
      */
     @GetMapping("/carts")
-    @ApiOperation(value = "获取购物车明细 /cartIndex")
-    public Object cartIndex(@LoginUser Integer userId) ;
+    public CartItem cartIndex( Integer userId) {
+
+    }
 
     /**
      * 加入商品到购物车
@@ -28,12 +34,13 @@ public interface CartController {
      * 否则添加新的购物车货品项。
      *
      * @param userId 用户ID
-     * @param cart   购物车商品信息， { goodsId: xxx, productId: xxx, number: xxx }
+     * @param cartItem   购物车商品信息， { goodsId: xxx, productId: xxx, number: xxx }
      * @return 加入购物车操作结果
      */
     @PostMapping("/carts")
-    @ApiOperation(value = "添加商品到购物车 /add", notes = "添加一个购物车项")
-    public Object add(@LoginUser Integer userId, @RequestBody Cart cart) ;
+    public int add( Integer userId, CartItem cartItem) {
+
+    }
 
     /**
      * 立即购买
@@ -43,23 +50,25 @@ public interface CartController {
      * 2. 添加成功以后，前者的逻辑是返回当前购物车商品数量，这里的逻辑是返回对应购物车项的ID
      *
      * @param userId 用户ID
-     * @param cart   购物车商品信息， { goodsId: xxx, productId: xxx, number: xxx }
+     * @param cartItem   购物车商品信息， { goodsId: xxx, productId: xxx, number: xxx }
      * @return 立即购买操作结果
      */
     @PostMapping("/carts/{id}")
-    @ApiOperation(value = "添加一个购物车明细，如果已经存在这种商品，就进行数量覆盖，否则就新增购物车明细 /fastadd", notes = "添加一个购物车项（直接购买）")
-    public Object fastadd(@LoginUser Integer userId, @RequestBody Cart cart);
+    public int fastadd( Integer userId,  CartItem cartItem) {
+
+    }
 
     /**
      * 修改购物车商品货品数量
      *
      * @param userId 用户ID
-     * @param cart   购物车商品信息， { id: xxx, goodsId: xxx, productId: xxx, number: xxx }
+     * @param cartItem   购物车商品信息， { id: xxx, goodsId: xxx, productId: xxx, number: xxx }
      * @return 修改结果
      */
     @PutMapping("/carts/{id}")
-    @ApiOperation(value = "修改某个购物车项信息 /update", notes = "修改某个购物车项信息")
-    public Object update(@LoginUser Integer userId, @RequestBody Cart cart) ;
+    public CartItem update( Integer userId,  CartItem cartItem) {
+
+    }
 
     /**
      * 购物车商品删除
@@ -76,8 +85,9 @@ public interface CartController {
      * 失败则 { errno: XXX, errmsg: XXX }
      */
     @DeleteMapping("/carts/{id}")
-    @ApiOperation(value = "删除一个购物车项 /delete", notes = "删除一个购物车项")
-    public Object delete(@LoginUser Integer userId, @RequestBody String body);
+    public Object delete( Integer userId,  String body) {
+
+    }
 
     /**
      * 购物车商品货品数量
@@ -88,14 +98,15 @@ public interface CartController {
      * @return 购物车商品货品数量
      */
     @GetMapping("/carts/count")
-    @ApiOperation(value = "返回购物车中所有货品数量 /goodscount")
-    public Object goodscount(@LoginUser Integer userId) ;
+    public int goodscount( Integer userId) {
+
+    }
 
     /**
      * 购物车下单
      *
      * @param userId    用户ID
-     * @param cartId    购物车商品ID：
+     * @param cartItemId    购物车商品ID：
      *                  如果购物车商品ID是空，则下单当前用户所有购物车商品；
      *                  如果购物车商品ID非空，则只下单当前购物车商品。
      * @param addressId 收货地址ID：
@@ -105,7 +116,6 @@ public interface CartController {
      * @return 购物车操作结果
      */
     @PostMapping("/orders")
-    @ApiOperation(value = "购物车下单 /checkout")
-    public Object checkout(@LoginUser Integer userId, Integer cartId, Integer addressId, Integer couponId, Integer grouponRulesId);
+    public int checkout(Integer userId, Integer cartItemId, Integer addressId, Integer couponId, Integer grouponRulesId) {
 
 }

@@ -1,47 +1,36 @@
-package com.example.demo;
+package com.example.demo.controller;
 
-import io.swagger.annotations.ApiOperation;
 import org.apache.tomcat.util.http.ResponseUtil;
-import org.springframework.core.annotation.Order;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.NotNull;
 
 /**
  * @Author zjy
- * @create 2019/12/5 17:38
+ * @create 2019/12/8 23:46
  */
 
 @RestController
 @RequestMapping("")
 public interface AdController {
-	
+
     @GetMapping("/admins/ads")
-    @ApiOperation(value="管理员查看所有的广告  /list")
-    public Object adminFindAdList(String name, String content,
-                       @RequestParam(defaultValue = "1") Integer page,
-                       @RequestParam(defaultValue = "10") Integer limit,
-//                       @Sort @RequestParam(defaultValue = "add_time") String sort,
-//                       @Order @RequestParam(defaultValue = "desc") String order
-					   );
-	
+    public Object adminFindAdList(@RequestParam(defaultValue = "1") Integer page,
+                                  @RequestParam(defaultValue = "10") Integer limit
+    );
+
     @PostMapping("/ads")
-    @ApiOperation(value="新建一条广告 /create")
-    public Object adminCreateAad(@RequestBody Ad ad);
+    public Object adminCreateAd(@RequestBody Ad ad);
 
     @GetMapping("/ads/{id}")
-    @ApiOperation(value="查看单条广告 /read")
-    public Object adminFindAd(@PathVariable Integer id);
+    public Object adminFindAdById(@PathVariable Integer id);
 
     @PutMapping("/ads/{id}")
-    @ApiOperation(value="修改广告信息 /update")
     public Object adminUpdateAd(@PathVariable Integer id,@RequestBody Ad ad);
 
     @DeleteMapping("/ads/{id}")
-    @ApiOperation(value="删除一条广告 /delete")
-    public Object adminDeleteAd(@PathVariable Integer id,@RequestBody Ad ad);
- 
-	@GetMapping("/ads")
-    @ApiOperation(value="用户查询广告")
-    public Object userFindAd();
+    public Object adminDeleteAd(@PathVariable Integer id);
+
+    @GetMapping("/ads")
+    public Object userFindAdList();
 }

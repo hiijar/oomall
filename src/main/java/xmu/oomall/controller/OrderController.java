@@ -21,13 +21,12 @@ public interface OrderController {
      * @return 订单列表
      */
     @GetMapping("/orders")
-    @ApiOperation(value = "用户获取订单列表/list", notes = "用户获取订单列表")
     public Object list(@LoginUser Integer userId,
                        @RequestParam(defaultValue = "0") Integer showType,
                        @RequestParam(defaultValue = "1") Integer page,
                        @RequestParam(defaultValue = "10") Integer limit,
-                       @Sort @RequestParam(defaultValue = "add_time") String sort,
-                       @Order @RequestParam(defaultValue = "desc") String order);
+                       @RequestParam(defaultValue = "add_time") String sort,
+                       @RequestParam(defaultValue = "desc") String order);
 
     /**
      * 订单详情
@@ -37,7 +36,6 @@ public interface OrderController {
      * @return 订单详情
      */
     @GetMapping("/orders/{id}")
-    @ApiOperation(value = "用户获取订单详情/detail", notes = "用户获取订单详情")
     public Object userDetail(@LoginUser Integer userId, @NotNull Integer orderId);
 
     /**
@@ -48,7 +46,6 @@ public interface OrderController {
      * @return 提交订单操作结果
      */
     @PostMapping("/orders/{id}/submitResult")
-    @ApiOperation(value = "提交订单操作结果/submit", notes = "提交订单操作结果")
     public Object submit(@LoginUser Integer userId, @RequestBody String body);
 
     /**
@@ -59,7 +56,6 @@ public interface OrderController {
      * @return 取消订单操作结果
      */
     @PostMapping("/orders/{id}/cancelResult")
-    @ApiOperation(value = "取消订单操作结果/cancel", notes = "取消订单操作结果")
     public Object cancel(@LoginUser Integer userId, @RequestBody String body);
 
 
@@ -75,7 +71,6 @@ public interface OrderController {
      * @return 操作结果
      */
     @PostMapping("/orders/{id}/prepay")
-    @ApiOperation(value = "付款订单的预支付会话标识/prepay", notes = "付款订单的预支付会话标识")
     public Object payPrepay(HttpServletRequest request, HttpServletResponse response);
 
     /**
@@ -86,7 +81,6 @@ public interface OrderController {
      * @return 订单退款操作结果
      */
     @PostMapping("/orders/{id}/refundResult")
-    @ApiOperation(value = "订单退款操作结果/refund", notes = "订单退款操作结果")
     public Object refund(@LoginUser Integer userId, @RequestBody String body);
 
     /**
@@ -97,7 +91,6 @@ public interface OrderController {
      * @return 订单操作结果
      */
     @PostMapping("/orders/{id}/confirmResult")
-    @ApiOperation(value = "确认收货订单操作结果/confirm", notes = "确认收货订单操作结果")
     public Object confirm(@LoginUser Integer userId, @RequestBody String body);
 
     /**
@@ -108,8 +101,7 @@ public interface OrderController {
      * @return 订单操作结果
      */
     @DeleteMapping("/orders/{id}")
-    @ApiOperation(value = "删除一个订单/delete", notes = "删除一个订单")
-    public Object delete(@LoginUser Integer userId, @RequestBody String body);
+    public Object delete(@PathVariable Integer id);
 
     /**
      * 待评价订单商品信息
@@ -120,7 +112,6 @@ public interface OrderController {
      * @return 待评价订单商品信息
      */
     @GetMapping("/orders/{id}/waiteValuatedGoods/{id}")
-    @ApiOperation(value = "待评价订单商品信息/goods", notes = "待评价订单商品信息")
     public Object goods(@LoginUser Integer userId,
                         @NotNull Integer orderId,
                         @NotNull Integer goodsId);
@@ -133,7 +124,6 @@ public interface OrderController {
      * @return 订单操作结果
      */
     @PostMapping("/orders/{id}/commentResult")
-    @ApiOperation(value = "评价订单商品操作结果/comment", notes = "评价订单商品操作结果")
     public Object comment(@LoginUser Integer userId, @RequestBody String body);
 
     /**
@@ -148,16 +138,13 @@ public interface OrderController {
      * @param order
      * @return
      */
-    @RequiresPermissions("admin:order:list")
-    @RequiresPermissionsDesc(menu = {"商场管理", "订单管理"}, button = "查询")
     @GetMapping("/admins/orders")
-    @ApiOperation(value="管理员查看订单列表  /list")
     public Object list(Integer userId, String orderSn,
                        @RequestParam(required = false) List<Short> orderStatusArray,
                        @RequestParam(defaultValue = "1") Integer page,
                        @RequestParam(defaultValue = "10") Integer limit,
-                       @Sort @RequestParam(defaultValue = "add_time") String sort,
-                       @Order @RequestParam(defaultValue = "desc") String order);
+                       @RequestParam(defaultValue = "add_time") String sort,
+                       @RequestParam(defaultValue = "desc") String order);
 
     /**
      * 订单详情
@@ -165,10 +152,7 @@ public interface OrderController {
      * @param id
      * @return
      */
-    @RequiresPermissions("admin:order:read")
-    @RequiresPermissionsDesc(menu = {"商场管理", "订单管理"}, button = "详情")
     @GetMapping("/orders/{id}")
-    @ApiOperation(value="管理员查看订单详情  /detail")
     public Object adminDetail(@PathVariable Integer id);
 
     /**
@@ -177,10 +161,7 @@ public interface OrderController {
      * @param body 订单信息，{ orderId：xxx }
      * @return 订单退款操作结果
      */
-    @RequiresPermissions("admin:order:refund")
-    @RequiresPermissionsDesc(menu = {"商场管理", "订单管理"}, button = "订单退款")
     @PostMapping("/orders/{id}/refund")
-    @ApiOperation(value="退款订单，管理员修改订单状态  /refund")
     public Object refund(@RequestBody String body,@PathVariable Integer id);
 
     /**
@@ -189,9 +170,6 @@ public interface OrderController {
      * @param body 订单信息，{ orderId：xxx, shipSn: xxx, shipChannel: xxx }
      * @return 订单操作结果
      */
-    @RequiresPermissions("admin:order:ship")
-    @RequiresPermissionsDesc(menu = {"商场管理", "订单管理"}, button = "订单发货")
     @PostMapping("/orders/{id}/ship")
-    @ApiOperation(value="订单发货，管理员修改订单状态  /ship")
     public Object ship(@RequestBody String body);
 }
