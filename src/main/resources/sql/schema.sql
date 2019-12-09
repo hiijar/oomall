@@ -300,6 +300,7 @@ CREATE TABLE `goods` (
   `volume` varchar(255) DEFAULT NULL,
   `special_freight_id` bigint(11) unsigned DEFAULT NULL,
   `is_special` tinyint(1) unsigned DEFAULT NULL,
+  `price` decimal(10,2) DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
 
