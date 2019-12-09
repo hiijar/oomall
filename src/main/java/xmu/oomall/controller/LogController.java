@@ -1,10 +1,10 @@
-package com.example.demo;
+package xmu.oomall.controller;
 
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.tomcat.util.http.ResponseUtil;
 import org.springframework.core.annotation.Order;
 import org.springframework.web.bind.annotation.*;
-
 import javax.validation.constraints.NotNull;
 
 /**
@@ -20,4 +20,7 @@ public interface LogController{
     @ApiOperation(value="管理员根据条件查看日志 /list")
     public Object list();
 
+    @PutMapping("/")
+    @ApiOperation(value="管理员写日志 /list")
+    public Object write(@RequestBody String body);
 }

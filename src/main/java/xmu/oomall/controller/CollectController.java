@@ -1,15 +1,20 @@
-/*
-package和import需要根据项目导入
- */
+package xmu.oomall.discount.controller;/*
 
 
 /**
  * 用户收藏服务
  */
+
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+import xmu.oomall.domain.CollectItem;
+
+import javax.validation.constraints.NotNull;
+import java.util.List;
+
 @RestController
 @RequestMapping("")// 收藏夹
 @Validated
-@Api()
 public interface CollectController {
 
     /**
@@ -22,13 +27,9 @@ public interface CollectController {
      * @return 用户收藏列表
      */
     @GetMapping("/collects")
-    @ApiOperation(value = "获取用户收藏列表 /list", notes = "获取用户收藏列表")
-    public Object list(@LoginUser Integer userId,
-                       @NotNull Byte type,
-                       @RequestParam(defaultValue = "1") Integer page,
-                       @RequestParam(defaultValue = "10") Integer limit,
-                       @Sort @RequestParam(defaultValue = "add_time") String sort,
-                       @Order @RequestParam(defaultValue = "desc") String order) ;
+    public List<CollectItem> list(Integer userId,Byte type,Integer page,Integer limit) {
+
+    }
 
     /**
      * 用户收藏添加或删除
@@ -41,10 +42,12 @@ public interface CollectController {
      */
 
     @PostMapping("/collects")
-    @ApiOperation(value = "添加收藏 ")
-    public Object add(@LoginUser Integer userId, @RequestBody String body) ;
+    public CollectItem add( Integer userId,  String body) {
+
+    }
 
     @DeleteMapping("/collects/{id}")
-    @ApiOperation(value = "取消收藏 ")
-    public Object update(@LoginUser Integer userId, @RequestBody String body) ;
+    public CollectItem update( Integer userId, String body) {
+
+    }
 }

@@ -1,6 +1,5 @@
-package com.example.demo;
+package xmu.oomall.controller;
 
-import io.swagger.annotations.ApiOperation;
 import org.apache.tomcat.util.http.ResponseUtil;
 import org.springframework.core.annotation.Order;
 import org.springframework.web.bind.annotation.*;
@@ -14,14 +13,12 @@ import javax.validation.constraints.NotNull;
 
 @RestController
 @RequestMapping("")
-public interface LogController{
+public interface CommentController{
 
     @GetMapping("/comments")
-    @ApiOperation(value="根据条件查找评论 /list")
     public Object list();
 
     @DeleteMapping("/comments/{id}")
-    @ApiOperation(value="删除一条评论/delete")
     public Object delete(@PathVariable Integer id,@RequestBody String body);
 
 }
