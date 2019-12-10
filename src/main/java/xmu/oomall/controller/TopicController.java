@@ -13,7 +13,7 @@ import javax.validation.constraints.NotNull;
  */
 
 @RestController
-@RequestMapping("/topics")
+@RequestMapping("/topicsSerice")
 public interface TopicController {
 
     /**
@@ -26,11 +26,7 @@ public interface TopicController {
     @ApiOperation("用户获取专题列表 /list")
     @GetMapping("/")
     public Object list(@RequestParam(defaultValue = "1") Integer page,
-                       @RequestParam(defaultValue = "10") Integer limit,
-//                       @Sort @RequestParam(defaultValue = "add_time") String sort,
-//                       @Order @RequestParam(defaultValue = "desc") String order) ;
-                        @RequestParam(defaultValue = "add_time") String sort,
-                        @RequestParam(defaultValue = "desc") String order) ;
+                       @RequestParam(defaultValue = "10") Integer limit) ;
 
     /**
      * 专题详情
@@ -61,11 +57,7 @@ public interface TopicController {
     @GetMapping("")
     public Object list(String title, String subtitle,
                        @RequestParam(defaultValue = "1") Integer page,
-                       @RequestParam(defaultValue = "10") Integer limit,
-//                       @Sort @RequestParam(defaultValue = "add_time") String sort,
-//                       @Order @RequestParam(defaultValue = "desc") String order) ;
-                       @RequestParam(defaultValue = "add_time") String sort,
-                        @RequestParam(defaultValue = "desc") String order) ;
+                       @RequestParam(defaultValue = "10") Integer limit) ;
 
     @ApiOperation("管理员添加专题 /create")
     /**

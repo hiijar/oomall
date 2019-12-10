@@ -12,13 +12,16 @@ import javax.validation.constraints.NotNull;
  */
 
 @RestController
-@RequestMapping("")
+@RequestMapping("/commentsService")
 public interface CommentController{
 
     @GetMapping("/comments")
     public Object list();
 
     @DeleteMapping("/comments/{id}")
-    public Object delete(@PathVariable Integer id,@RequestBody String body);
+    public Object delete(@PathVariable Integer id);
+
+    @PostMapping("/goods/{id}/comments")
+    public Object create(CommentVo comment);
 
 }

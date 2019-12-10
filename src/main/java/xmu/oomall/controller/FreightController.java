@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.NotNull;
 @RestController
-@RequestMapping("/admin-freight")// /wx/order
+@RequestMapping("/admin-freightSerice")// /wx/order
 
 public interface FeightController {
 
@@ -38,6 +38,6 @@ public interface FeightController {
     @DeleteMapping("/defaultFreights/{id}")
     public Object updateDefaultFreight(@PathVariable("defaultFreightsId") String defaultFreightsId);
 
-    @GetMapping("/freight/{orderitemid}")
-    public Object getFreight();
+    @GetMapping("/freight/{orderid}")
+    public Object getFreight(@PathVariable("orderid") String orderId);
 }

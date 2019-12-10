@@ -11,7 +11,9 @@ import javax.validation.constraints.NotNull;
  * @Description:商品模块外部及内部api
  * @create 2019/12/3 18:30
  */
+
 @RestController
+@RequestMapping("/goodsService")
 public interface GoodsController {
 
     /**
@@ -28,7 +30,7 @@ public interface GoodsController {
      * @return
      */
     @PostMapping("/goods/{id}/products")
-    public Object listProductByGoodsId(@PathVariable Integer id);
+    public Object listProductByGoodsId(@PathVariable Integer id,@RequestBody Product product);
 
     /**
      * 管理员修改商品下的某个产品信息
@@ -36,7 +38,7 @@ public interface GoodsController {
      * @return
      */
     @PutMapping("/products/{id}")
-    public Object updateProductById(@PathVariable Integer id);
+    public Object updateProductById(@PathVariable Integer id,@RequestBody Product product);
 
     /**
      * 管理员删除商品下的某个产品信息
@@ -53,7 +55,7 @@ public interface GoodsController {
      * @return
      */
     @PostMapping("/goods")
-    public Object addGoods(@RequestBody GoodsAllinone goodsAllinone);
+    public Object addGoods(@RequestBody Goods goods);
 
     /**
      * 根据id获取某个商品
@@ -61,7 +63,7 @@ public interface GoodsController {
      * @return
      */
     @GetMapping("/goods/{id}")
-    public Object getGoodsById(@NotNull Integer id) ;
+    public Object getGoodsById(Integer id) ;
 
     /**
      * 根据id更新商品信息
@@ -69,7 +71,7 @@ public interface GoodsController {
      * @return
      */
     @PutMapping("/goods/{id}")
-    public Object updateGoodsById(@PathVariable Integer id, @RequestBody GoodsAllinone goodsAllinone);
+    public Object updateGoodsById(@PathVariable Integer id, @RequestBody Goods goods);
 
     /**
      * 根据id删除商品信息
@@ -99,10 +101,10 @@ public interface GoodsController {
      */
     @GetMapping("/goods")
     public Object listGoods(String goodsSn, String name,
-                            @RequestParam(defaultValue = "1") Integer page,
-                            @RequestParam(defaultValue = "10") Integer limit,
-                            @Sort @RequestParam(defaultValue = "add_time") String sort,
-                            @Order @RequestParam(defaultValue = "desc") String order);
+                            @RequestParam Integer page,
+                            @RequestParam Integer limit,
+                            @RequestParam String sort,
+                            @RequestParam String order);
 
     /**
      * 根据条件搜索品牌
@@ -116,10 +118,10 @@ public interface GoodsController {
      */
     @GetMapping("/admins/brands")
     public Object listBrandByCondition(String id, String name,
-                                      @RequestParam(defaultValue = "1") Integer page,
-                                      @RequestParam(defaultValue = "10") Integer limit,
-                                      @Sort @RequestParam(defaultValue = "add_time") String sort,
-                                      @Order @RequestParam(defaultValue = "desc") String order) ;
+                                      @RequestParam Integer page,
+                                      @RequestParam Integer limit,
+                                      @RequestParam String sort,
+                                      @RequestParam String order) ;
 
 
     /**
@@ -176,7 +178,7 @@ public interface GoodsController {
      * @return
      */
     @GetMapping("/categories/{id}")
-    public Object getGoodsCategoryById(@NotNull Integer id) ;
+    public Object getGoodsCategoryById(Integer id) ;
 
     /**
      * 修改分类信息
@@ -212,10 +214,10 @@ public interface GoodsController {
      * @return
      */
     @GetMapping("/brands")
-    public Object listBrand(@RequestParam(defaultValue = "1") Integer page,
-                            @RequestParam(defaultValue = "10") Integer limit,
-                            @Sort @RequestParam(defaultValue = "add_time") String sort,
-                            @Order @RequestParam(defaultValue = "desc") String order) ;
+    public Object listBrand(@RequestParam Integer page,
+                            @RequestParam Integer limit,
+                            @RequestParam String sort,
+                            @RequestParam String order) ;
 
     /**
      * 获取当前一级分类下的二级分类
@@ -224,7 +226,7 @@ public interface GoodsController {
      * @return 当前分类栏目
      */
     @GetMapping("categories/l1/{id}/l2")
-    public Object listSecondLevelGoodsCategoryById(@NotNull Integer id);
+    public Object listSecondLevelGoodsCategoryById(Integer id);
 
     /**
      * 根据id获得产品对象

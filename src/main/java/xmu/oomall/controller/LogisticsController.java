@@ -13,11 +13,14 @@ import javax.validation.constraints.NotNull;
  */
 
 @RestController
-@RequestMapping("/logService")
-public interface LogController{
+@RequestMapping("/LogisticsService")
+public interface LogisticsController{
 
     @GetMapping("/")
-    @ApiOperation(value="管理员根据条件查看日志 /list")
-    public Object list();
+    @ApiOperation(value="得到物流单号 /list")
+    public Object getLogisticsId();
 
+    @GetMapping("/")
+    @ApiOperation(value="通过单号得到物流信息 /list")
+    public Object getLogisticsInformation(@RequestBody String body);
 }
