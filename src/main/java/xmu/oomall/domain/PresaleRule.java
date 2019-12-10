@@ -32,7 +32,7 @@ public class PresaleRule {
     /**
      *预售产品id
      */
-    private Integer productId;
+    private Integer goodsId;
     /**
      *定金
      */
@@ -50,7 +50,7 @@ public class PresaleRule {
                 ", endTime=" + endTime +
                 ", statusCode=" + statusCode +
                 ", strategy='" + strategy + '\'' +
-                ", productId=" + productId +
+                ", goodsId=" + goodsId +
                 ", deposit=" + deposit +
                 ", gmtCreate=" + gmtCreate +
                 ", gmtModified=" + gmtModified +
@@ -111,12 +111,12 @@ public class PresaleRule {
         this.strategy = strategy;
     }
 
-    public Integer getProductId() {
-        return productId;
+    public Integer getGoodsId() {
+        return goodsId;
     }
 
-    public void setProductId(Integer productId) {
-        this.productId = productId;
+    public void setGoodsId(Integer goodsId) {
+        this.goodsId = goodsId;
     }
 
     public BigDecimal getDeposit() {

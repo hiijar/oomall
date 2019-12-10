@@ -40,3 +40,6 @@
 - user增加role_id，区分不同角色的用户，来做权限验证（说明：privilege表中的name可以用来存储url，具体实现各组可自定义）
 - **添加data.sql文件用于插入基本数据**
 
+### 2019.12.10 更新日志
+
+- presale由product_id改为goods_id，是针对商品

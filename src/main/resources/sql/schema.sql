@@ -553,7 +553,7 @@ DROP TABLE IF EXISTS `presale_rule`;
 CREATE TABLE `presale_rule` (
   `id` bigint(11) unsigned NOT NULL AUTO_INCREMENT,
   `strategy` varchar(5000) DEFAULT NULL,
-  `product_id` bigint(11) unsigned NOT NULL,
+  `goods_id` bigint(11) unsigned NOT NULL,
   `start_time` datetime DEFAULT NULL,
   `end_time` datetime DEFAULT NULL,
   `status` tinyint(1) unsigned DEFAULT '0',
