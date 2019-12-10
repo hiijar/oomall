@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * WX端 GET /goods/{id}的返回值VO
  */
-public class GooodsVo {
+public class GoodsVo {
 
     /**
      * 商品信息
