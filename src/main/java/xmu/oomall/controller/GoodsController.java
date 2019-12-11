@@ -220,12 +220,19 @@ public interface GoodsController {
     public Object listSecondLevelGoodsCategoryById(@PathVariable Integer Integer id);
 
     /**
-     * 根据id获得产品对象
+     * 根据id获得产品对象 - 内部
      * @param id
      * @return
      */
 	@GetMapping("/product/{id}")
 	public Object getProductById(@PathVariable Integer id);
 
+    /**
+     * 判断商品是否在售 - 内部
+     * @param id
+     * @return
+     */
+	@GetMapping("/goods/{id}/isOnSale")
+	public Object isGoodsOnSale(@PathVariable Integer id);
 
 }

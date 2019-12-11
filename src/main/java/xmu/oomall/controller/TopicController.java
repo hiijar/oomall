@@ -33,5 +33,5 @@ public interface TopicController {
 
 
     @DeleteMapping("/topics/{id}")
-    public Object delete(@RequestBody Topic topic,@PathVariable Integer id) ;
+    public Object delete(@PathVariable Integer id) ;
 }
