@@ -14,7 +14,7 @@ public class GetOrdersVo {
     /**
      * 获得订单明细
      */
-    private List<OrderItem> orderItems;
+    private List<OrderItemVo> orderItemVo;
 
     /**
      * 用户地址
@@ -29,12 +29,12 @@ public class GetOrdersVo {
         this.order = order;
     }
 
-    public List<OrderItem> getOrderItems() {
-        return orderItems;
+    public List<OrderItemVo> getOrderItemVo() {
+        return orderItemVo;
     }
 
-    public void setOrderItems(List<OrderItem> orderItems) {
-        this.orderItems = orderItems;
+    public void setOrderItemVo(List<OrderItemVo> orderItemVo) {
+        this.orderItemVo = orderItemVo;
     }
 
     public Address getAddress() {
