@@ -13,7 +13,7 @@ public interface PaymentController {
 
     /**
      * 订单模块调用此方法请求下单支付
-     * 此方法再调用WxPayment模块的addWxPayment()方法（模拟微信统一支付api），addWxPayment方法应该返回prepay_id等信息
+     * 此方法再调用WxPayment模块的unifiedWxPayment()方法（模拟微信统一支付api），unifiedWxPayment方法应该返回prepay_id等信息
      * 此方法拿到prepay_id等信息后，需要修改数据库中payment表相应属性的属性值，如paySn等等
      * 调用此方法后，前端应显示包括商户名称、订单总价、支付方式(等)信息的界面，供用户确认其支付信息
      * 确认其支付信息后，用户可以点击确认支付按钮调用WxPayment模块的RequestPayment()方法发起最终支付
@@ -30,10 +30,11 @@ public interface PaymentController {
      * 管理员删除支付（好像没什么用？）
      *
      * @param paymentId
+     * @param userId
      * @return Payment
      */
-    @DeleteMapping("payment/{id}")
-    public Object deletePayment(@PathVariable("id") Integer paymentId);
+    @DeleteMapping("admin/payment/{id}")
+    public Object adminDeletePayment(@PathVariable("id") Integer paymentId, @RequestParam Integer userId);
 
 
 
@@ -51,11 +52,11 @@ public interface PaymentController {
     /**
      * 管理员查看所有支付（用户好像不用看？）
      *
-     * @param getPaymentVo
+     * @param userId
      * @return List<GetPaymentVo>
      */
     @GetMapping("admin/payment")
-    public Object adminGetAllPayments(GetPaymentVo getPaymentVo, @RequestParam Integer userId);
+    public Object adminGetAllPayments(@RequestParam Integer userId);
 
 
 
@@ -63,6 +64,7 @@ public interface PaymentController {
      * 管理员查看某个支付（用户好像不用看？）
      *
      * @param paymentId
+     * @param userId
      * @return GetPaymentVo
      */
     @GetMapping("admin/payment/{id}")

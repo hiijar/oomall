@@ -1,12 +1,5 @@
-package com.ooad.controller;
-import com.ooad.domain.ad.Ad;
-import com.ooad.domain.other.Admin;
-import com.ooad.domain.other.Role;
-import com.ooad.domain.other.User;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import org.apache.ibatis.annotations.Param;
-import org.springframework.validation.annotation.Validated;
+package xmu.oomall.userinfo;
+import xmu.oomall.userinfo.domain.*;
 import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import java.math.BigDecimal;
@@ -19,129 +12,112 @@ import java.util.List;
  * @date 2019-12-03
  */
 @RestController
-@RequestMapping("")
-public interface UserInfoController {
+@RequestMapping("userInfoService")
+public interface UserInfoService {
     // 内部接口
     /**
-     * 内部接口， 修改返点的值
-     * @param userId 用户的id
-     * @param rebate 返点值
-     * @return 修改成功或者失败
+     * 修改用户返点
+     * @param user 用户的实例对象
+     * @return 修改结果
      */
     @PutMapping("/user/rebate")
-    String userInfo(Integer userId, BigDecimal rebate);
+    Object updateUserRebate(@RequestBody User user);
 
     // 管理员
     /**
-     * 管理员获取用户列表
-     * @param username 用户名
-     * @param mobile 手机号
-     * @param page 分页页数
-     * @param limit 分页大小
-     * @param sort 添加时间排序
-     * @param order 添加时间排序
-     * @return 用户列表
-     */
-    @GetMapping("users")
-    List<User> userList(String username, String mobile,
-                        @RequestParam(defaultValue = "1") Integer page,
-                        @RequestParam(defaultValue = "10") Integer limit,
-                        @RequestParam(defaultValue = "add_time") String sort,
-                        @RequestParam(defaultValue = "desc") String order);
-
-    /**
      * 获取管理员列表
-     *
-     * @param username 管理员名
-     * @param page 分页页数
-     * @param limit 分页大小
-     * @param sort 添加时间排序
-     * @param order desc排序
-     * @return Object 管理员列表
+     * @return 管理员列表
      */
     @GetMapping("/admins")
-    List<Admin> list(String username,
-                  @RequestParam(defaultValue = "1") Integer page,
-                  @RequestParam(defaultValue = "10") Integer limit,
-                  @RequestParam(defaultValue = "add_time") String sort,
-                  @RequestParam(defaultValue = "desc") String order);
+   Object adminList();
 
     /**
      * 创建一个管理员
      *
      * @param admin 管理员信息
-     * @return 创建结果（成功或者失败）
+     * @return 新增的admin对象
      */
     @PostMapping("/admins")
-    String create(@RequestBody Admin admin);
+    Object createAdmin(@RequestBody Admin admin);
 
     /**
      * 查看管理员信息
      *
      * @param id 管理员的id
-     * @return 管理员信息
+     * @return admin对象
      */
     @GetMapping("/admins/{id}")
-    Admin read(@PathVariable Integer id);
+    Object getAdminInfo(@PathVariable Integer id);
 
     /**
      * 修改管理员信息
      *
      * @param id 管理员id
      * @param admin 新的管理员信息
-     * @return 修改结果
+     * @return 修改后的admin对象
      */
     @PutMapping("/admins/{id}")
-    Admin update(@PathVariable Integer id, @RequestBody Admin admin);
+    Object updateAdmin(@PathVariable Integer id, @RequestBody Admin admin);
 
     /**
      * 删除某个管理员
      *
      * @param id 管理员id
-     * @param admin 管理员信息
      * @return 删除结果
      */
     @DeleteMapping("/admins/{id}")
-   String delete(@PathVariable Integer id, @RequestBody Admin admin);
+    Object delete(@PathVariable Integer id);
 
     /**
      * 管理员根据请求信息登陆
-     * @param body 请求体
-     * @param request 请求
-     * @return 登陆结果
+     * @param body 请求体 包含账号密码
+     * @return admin对象
      */
     @PostMapping("/admins/login")
-    String adminLogin(@RequestBody String body, HttpServletRequest request);
+    Object adminLogin(@RequestBody Object body);
 
     /**
      * 管理员注销
-     * @return 注销结果
+     * @return admin对象
      */
     @PostMapping("/admins/logout")
-    String logout(@Loginuser Integer userId);
+    Object adminLogOut();
 
     /**
      * 管理员查看自己的信息
-     * @param userId 用户的id
-     * @return 管理员的信息
+     * @return admin对象
      */
     @GetMapping("/admins/info")
-    Admin info(@Loginuser Integer userId);
+    Object adminInfo();
+
+    /**
+     * 管理员修改密码
+     * @param admin admin对象
+     * @return admin对象
+     */
+    @PutMapping("/admin/password")
+    Object updateAdminPassword(@RequestBody Admin admin);
+    /**
+     * 管理员获取用户列表
+     * @return 用户列表
+     */
+    @GetMapping("/users")
+    Object userList();
 
     /**
      * 管理员查看所有角色
-     * @return 角色列表
+     * @return role的列表
      */
     @GetMapping("/roles")
-    List<Role> roleList();
+    Object roleList();
 
     /**
      * 管理员新建角色
      * @param role role实例
-     * @return 创建结果
+     * @return role的实例
      */
     @PostMapping("/roles")
-    String addRole(@RequestBody Role role);
+    Object addRole(@RequestBody Role role);
 
     /**
      * 查看单个角色的详细信息
@@ -149,7 +125,7 @@ public interface UserInfoController {
      * @return role实例
      */
     @GetMapping("/roles/{id}")
-    Role getRole(@PathVariable("id") Integer id);
+    Object getRole(@PathVariable("id") Integer id);
 
     /**
      * 修改某个role的信息
@@ -158,7 +134,7 @@ public interface UserInfoController {
      * @return 修改后的role
      */
     @PutMapping("/roles/{id}")
-    Role updateRole(@PathVariable("id") Integer id, @RequestBody Role role);
+    Object updateRole(@PathVariable("id") Integer id, @RequestBody Role role);
 
     /**
      * 删除某个role
@@ -166,16 +142,16 @@ public interface UserInfoController {
      * @return 删除结果
      */
     @DeleteMapping("/roles/{id}")
-    String deleteRole(@PathVariable("id") Integer id);
+    Object deleteRole(@PathVariable("id") Integer id);
 
     /**
      * 修改role权限
      * @param id role的id
-     * @param  permission 权限
-     * @return 修改结果
+     * @param role 要修改的role实例
+     * @return 没有permission表，暂时返回role
      */
     @PutMapping("/roles/{id}/permission")
-    String updateRolePermission(@PathVariable("id") Integer id, @Param("permission") String permission);
+    Object updateRolePermission(@PathVariable("id") Integer id, @RequestBody Role role);
 
     /**
      * 返回一个权限对应的管理员
@@ -183,39 +159,38 @@ public interface UserInfoController {
      * @return 管理员的列表
      */
     @GetMapping("/roles/{id}/admins")
-    List<Admin> getAdmin(@PathVariable("id") Integer id);
+    Object getAdmin(@PathVariable("id") Integer id);
+
+
     // 用户
     /**
      * 用户个人页面数据
      *
      * 目前是用户订单统计信息
-     *
-     * @param userId 用户ID
-     * @return 用户个人页面数据
+     * 具体的userId去解析token获得
+     * @return 用户个人页面数据userInfoVo
      */
-    @GetMapping("/info")
-    User userInfo(@Loginuser Integer userId);
+    @GetMapping("/user")
+    Object userInfo();
 
     /**
      * 用户账号登录
      *
-     * @param body    请求内容，{ username: xxx, password: xxx }
-     * @param request 请求对象
-     * @return 登录结果
+     * @param body 包含账号密码
+     * @return 数据是userInfoVo
      */
     @PostMapping("/login")
-    User userLogin(@RequestBody String body, HttpServletRequest request);
+    Object userLogin(@RequestBody Object body);
 
     /**
      * 请求注册验证码
      *
-     * TODO
      * 这里需要一定机制防止短信验证码被滥用
-     * @param body 手机号码 { mobile }
+     * @param body 包括phoneNumber,captchaType
      * @return 验证码
      */
     @PostMapping("/regCaptcha")
-    String registerCaptcha(@RequestBody String body);
+    Object registerCaptcha(@RequestBody Object body);
 
     /**
      * 用户账号注册
@@ -225,11 +200,11 @@ public interface UserInfoController {
      *                username: xxx,
      *                password: xxx,
      *                mobile: xxx
-     *                code: xxx
+     *                wxCode: xxx
      *                }
      *                其中code是手机验证码，目前还不支持手机短信验证码
      * @param request 请求对象
-     * @return 登录结果
+     * @return 注册结果
      * 成功则
      * {
      * errno: 0,
@@ -244,19 +219,17 @@ public interface UserInfoController {
      * 失败则 { errno: XXX, errmsg: XXX }
      */
     @PostMapping("/register")
-    User register(@RequestBody String body, HttpServletRequest request);
+    Object register(@RequestBody String body, HttpServletRequest request);
 
     /**
      * 请求验证码
      *
-     * TODO
      * 这里需要一定机制防止短信验证码被滥用
-     *
-     * @param body 手机号码 { mobile: xxx, type: xxx }
-     * @return 验证码
+     * @param captcha 手机号码 { mobile: xxx, type: xxx }
+     * @return 验证码captcha
      */
     @PostMapping("/captcha")
-    String captcha(Integer userId, @RequestBody String body);
+    Object captcha(@RequestBody Object captcha);
 
     /**
      * 账号密码重置
@@ -274,7 +247,7 @@ public interface UserInfoController {
      * 失败则 { errno: XXX, errmsg: XXX }
      */
     @PutMapping("/password")
-    User reset(@RequestBody String body, HttpServletRequest request);
+   Object reset(@RequestBody String body, HttpServletRequest request);
 
     /**
      * 账号手机号码重置
@@ -292,5 +265,5 @@ public interface UserInfoController {
      * 失败则 { errno: XXX, errmsg: XXX }
      */
     @PutMapping("/phone")
-    User resetPhone(@Loginuser Integer userId, @RequestBody String body, HttpServletRequest request);
+    Object resetPhone(@RequestBody String body, HttpServletRequest request);
 }

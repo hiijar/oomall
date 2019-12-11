@@ -1,40 +1,37 @@
-package com.xmu.wowoto.wx_payment.controller;
+package com.xmu.wowoto.wx_payment.jiekou;
 
-import com.xmu.wowoto.wx_payment.util.ResponseUtil;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.util.HashMap;
-import java.util.Map;
-
+/**
+ * @Author zqh
+ * @create 2019/12/11 11:06
+ * 因为这个模块的内部接口都是我自己(凭空)瞎想的，难免有不正确的地方。如果大家发现了不正确的地方，欢迎（并且十分需要你的）纠正:)
+ */
+@RequestMapping("/WxPaymentService")
 @RestController
 public interface WxPaymentController {
 
-    /*
-     * @Return:
-     *     prepay_id, 微信生成的预支付会话标识
-     *     等等
+    /**
+     * 支付模块调用此方法模拟微信统一支付api
+     * 此方法应该返回给支付模块prepay_id等信息
+     *
+     * @param paymentWxPaymentVo
+     * @return PaymentWxPaymentVo
      */
-    @PostMapping("prepays")
-    @ApiOperation("商户在小程序中先调用该接口在微信支付服务后台生成预支付交易单，返回正确的预支付交易后调起支付。")
-    public Object unifiedOrder(@ApiParam(name="actualPrice",value="付款金额",required=true) BigDecimal actualPrice,
-                               @ApiParam(name="payChannel",value="付款渠道",required=true) Integer payChannel,
-                               @ApiParam(name="beginTime",value="付款的开始时间",required=false) LocalDateTime beginTime,
-                               @ApiParam(name="endTime",value="付款的结束时间",required=false) LocalDateTime endTime,
-                               @ApiParam(name="orderId",value="商户订单号",required=true)Integer orderId);
+    @PostMapping("wxpayment")
+    public Object unifiedWxPayment(PaymentWxPaymentVo paymentWxPaymentVo);
 
 
-
-    @PutMapping("prepays/{id}")
-    @ApiOperation("调用requestPayment()发起微信支付")
-    public Object requestPayment(@ApiParam(name="timeStamp",value="时间戳",required=true) String timeStamp,
-                                 @ApiParam(name="prepay_id",value="统一下单接口返回的 prepay_id 参数值",required=true) @PathVariable("id") String prepay_id,
-                                 @ApiParam(name="orderId",value="商户订单号",required=true) String orderId);
+    /**
+     * 用户发起最终支付
+     * 此方法将调用Payment模块的updatePayment方法修改支付状态等信息
+     * updatePayment方法进而调用Order模块的updateOrder方法修改订单状态等信息
+     * 同时，调用此方法后，前端应显示当前（支付状态），商品，商品全称，支付时间，支付方式，交易单号，商户单号等信息给用户
+     *
+     * @param prepay_id
+     * @return updateWxPaymentVo
+     */
+    @PutMapping("wxpayment/{id}")
+    public Object requestWxPayment(@PathVariable("id") Integer prepay_id);
 
 }
