@@ -1,32 +1,71 @@
-package com.xmu.wowoto.payment.controller;
+﻿package com.xmu.wowoto.payment.jiekou;
 
-import com.xmu.wowoto.payment.util.ResponseUtil;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
-import java.util.Map;
+/**
+ * @Author zqh
+ * @create 2019/12/10 23:18
+ * 因为这个模块的内部接口都是我自己(凭空)瞎想的，难免有不正确的地方。如果大家发现了不正确的地方，欢迎（并且十分需要你的）纠正:)
+ */
+@RequestMapping("PaymentService")
+@RestController
+public interface PaymentController {
 
-@RestController("")
-public class PaymentController {
+    /**
+     * 订单模块调用此方法请求下单支付
+     * 此方法再调用WxPayment模块的addWxPayment()方法（模拟微信统一支付api），addWxPayment方法应该返回prepay_id等信息
+     * 此方法拿到prepay_id等信息后，需要修改数据库中payment表相应属性的属性值，如paySn等等
+     * 调用此方法后，前端应显示包括商户名称、订单总价、支付方式(等)信息的界面，供用户确认其支付信息
+     * 确认其支付信息后，用户可以点击确认支付按钮调用WxPayment模块的RequestPayment()方法发起最终支付
+     *
+     * @param orderPaymentVo
+     * @return OrderPaymentVo
+     */
+    @PostMapping("payment")
+    public Object addPayment(@Requestbody OrderPaymentVo orderPaymentVo);
 
-    @PostMapping("payments")
-    @ApiOperation("下单，获取prepay_id等五个参数，进而鉴权调起支付")
-    public Object addPayment(@ApiParam(name="orderId",value="商户订单号",required=true) String orderId){
-        Map<String, Object> addPaymentRet = new HashMap<String, Object>();
-        return ResponseUtil.ok(addPaymentRet);
-    }
 
-    @PutMapping("payments/{id}")
-    @ApiOperation("微信后台向商户系统推送支付结果，商户系统修改订单状态")
-    public boolean updatePayment(@ApiParam(name="return_code",value="SUCCESS/FAIL",required=true) String return_code,
-                                @ApiParam(name="return_msg",value="返回信息，如非空，为错误原因",required=false) String return_msg,
-                                @ApiParam(name="orderId",value="商户订单号",required=true) @PathVariable("id") String orderId){
-        return true;
-    }
+
+    /**
+     * 管理员删除支付（好像没什么用？）
+     *
+     * @param paymentId
+     * @return Payment
+     */
+    @DeleteMapping("payment/{id}")
+    public Object deletePayment(@PathVariable("id") Integer paymentId);
+
+
+
+    /**
+     * （模拟的）微信后台调用此方法修改订单状态
+     * 此方法还会调用order模块的updateOrder方法，修改订单状态
+     *
+     * @param prepay_id：预支付订单号
+     * @return Payment
+     */
+    @PutMapping("payment/{id}")
+    public Object updatePayment(@PathVariable("id") Integer prepay_id);
+
+
+    /**
+     * 管理员查看所有支付（用户好像不用看？）
+     *
+     * @param getPaymentVo
+     * @return List<GetPaymentVo>
+     */
+    @GetMapping("admin/payment")
+    public Object adminGetAllPayments(GetPaymentVo getPaymentVo, @RequestParam Integer userId);
+
+
+
+    /**
+     * 管理员查看某个支付（用户好像不用看？）
+     *
+     * @param paymentId
+     * @return GetPaymentVo
+     */
+    @GetMapping("admin/payment/{id}")
+    public Object adminGetAllPayments(@PathVariable("id") Integer paymentId, @RequestParam Integer userId);
+
 }
