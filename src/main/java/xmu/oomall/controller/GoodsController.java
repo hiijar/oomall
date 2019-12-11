@@ -1,10 +1,5 @@
 package xmu.oomall.controller;
 
-import org.springframework.core.annotation.Order;
-import org.springframework.web.bind.annotation.*;
-import xmu.oomall.domain.*;
-
-import javax.validation.constraints.NotNull;
 
 /**
  * @Author 模块标准组
@@ -27,10 +22,11 @@ public interface GoodsController {
     /**
      * 管理员添加商品下的产品
      * @param id
+     * @param product
      * @return
      */
     @PostMapping("/goods/{id}/products")
-    public Object listProductByGoodsId(@PathVariable Integer id,@RequestBody Product product);
+    public Object addProductByGoodsId(@PathVariable Integer id,@RequestBody Product product);
 
     /**
      * 管理员修改商品下的某个产品信息
@@ -49,12 +45,19 @@ public interface GoodsController {
     public Object deleteProductById(@PathVariable Integer id);
 
     /**
-     * 新建商品
-     *
-     * @param goodsAllinone
+     * 获取商品列表
      * @return
      */
-    @PostMapping("/goods")
+    @GetMapping("/admin/goods")
+    public Object listGoods();
+
+    /**
+     * 新建/上架一个商品
+     *
+     * @param goods
+     * @return
+     */
+    @PostMapping("/admin/goods")
     public Object addGoods(@RequestBody Goods goods);
 
     /**
@@ -67,7 +70,8 @@ public interface GoodsController {
 
     /**
      * 根据id更新商品信息
-     * @param goodsAllinone
+     * @param id
+     * @param goods
      * @return
      */
     @PutMapping("/goods/{id}")
@@ -83,13 +87,14 @@ public interface GoodsController {
 
     /**
      * 获取商品分类信息
+     * @param id
      * @return
      */
     @GetMapping("/categories/{id}/goods")
-    public Object getCategoriesInfoById();
+    public Object getCategoriesInfoById(@PathVariable Integer id);
 
     /**
-     * 根据条件搜素商品
+     * 根据条件搜索商品
      *
      * @param goodsSn
      * @param name
@@ -100,7 +105,8 @@ public interface GoodsController {
      * @return
      */
     @GetMapping("/goods")
-    public Object listGoods(String goodsSn, String name,
+    public Object listGoods(@RequestParam String goodsSn,
+                            @RequestParam String name,
                             @RequestParam Integer page,
                             @RequestParam Integer limit,
                             @RequestParam String sort,
@@ -117,7 +123,8 @@ public interface GoodsController {
      * @return
      */
     @GetMapping("/admins/brands")
-    public Object listBrandByCondition(String id, String name,
+    public Object listBrandByCondition(@RequestParam String id,
+                                       @RequestParam String name,
                                       @RequestParam Integer page,
                                       @RequestParam Integer limit,
                                       @RequestParam String sort,
@@ -147,7 +154,7 @@ public interface GoodsController {
      * @return
      */
     @PutMapping("/brands/{id}")
-    public Object updateBrandById(@PathVariable Integer id, @RequestBody Brand brand);
+    public Object updateBrandById(@PathVariable Integer id,@RequestBody Brand brand);
 
     /**
      * 删除一个品牌
@@ -178,7 +185,7 @@ public interface GoodsController {
      * @return
      */
     @GetMapping("/categories/{id}")
-    public Object getGoodsCategoryById(Integer id) ;
+    public Object getGoodsCategoryById(@PathVariable Integer id) ;
 
     /**
      * 修改分类信息
