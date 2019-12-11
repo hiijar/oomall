@@ -14,7 +14,7 @@ public class CouponVo {
     /**
      * 单张优惠劵信息
      */
-    private CouponRules couponRules;
+    private CouponRule couponRule;
 
     public Coupon getCoupon() {
         return coupon;
@@ -24,11 +24,11 @@ public class CouponVo {
         this.coupon = coupon;
     }
 
-    public CouponRules getCouponRules() {
-        return couponRules;
+    public CouponRule getCouponRule() {
+        return couponRule;
     }
 
-    public void setCouponRules(CouponRules couponRules) {
-        this.couponRules = couponRules;
+    public void setCouponRule(CouponRule couponRule) {
+        this.couponRule = couponRule;
     }
 }
