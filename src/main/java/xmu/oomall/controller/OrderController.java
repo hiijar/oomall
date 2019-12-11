@@ -1,7 +1,6 @@
-package ooad33.order.controller;
+package lsz.test;
 
-import ooad33.order.domain.vo.GetOrdersVo;
-import ooad33.order.domain.vo.OrderSubmitVo;
+
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -26,7 +25,7 @@ public interface OrderController {
      * @return  OrdersubmitVo
      */
     @PostMapping("/orders")
-    Object submitOrders(@RequestBody OrderSubmitVo orderSubmitVo);
+    Object submitOrders(OrderSubmitVo orderSubmitVo);
 
     /**
      * @return  返回getOrdersVo
@@ -69,7 +68,7 @@ public interface OrderController {
 
     /**
      *
-     * @param
+     * @param getOrdersVo
      * @return  List<GetOrdersVo>
      */
     @GetMapping("/orders/unevaluted")
@@ -77,11 +76,12 @@ public interface OrderController {
 
     /**
      *
+     * @param getOrdersVo
      * @param userId
      * @return  List<GetOrdersVo>
      */
     @GetMapping("/admin/orders")
-    Object adminGetOrders(@RequestParam Integer userId);
+    Object adminGetOrders(GetOrdersVo getOrdersVo, @RequestParam Integer userId);
 
     /**
      *
@@ -107,11 +107,6 @@ public interface OrderController {
     @PostMapping("/orders/{id}/ship")
     Object orderShip(Integer id);
 
-    /**
-     *
-     * @return  分享id的订单列表
-     */
-    @GetMapping("/orders/shareId")
-    Object getOrderShareId();
+
 
 }

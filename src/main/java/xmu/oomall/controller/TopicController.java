@@ -23,8 +23,8 @@ public interface TopicController {
      * @param limit 分页大小
      * @return 专题列表
      */
-    @ApiOperation("用户获取专题列表 /list")
-    @GetMapping("/")
+    @ApiOperation("获取专题列表 /list")
+    @GetMapping("")
     public Object list(@RequestParam(defaultValue = "1") Integer page,
                        @RequestParam(defaultValue = "10") Integer limit) ;
 
@@ -48,16 +48,6 @@ public interface TopicController {
     @ApiOperation("用户获取专题的相关专题 /related")
     @GetMapping("/{id}/related")
     public Object related(@NotNull Integer id) ;
-
-    @ApiOperation("管理员查询专题 /list")
-    /**
-    @RequiresPermissions("admin:topic:list")
-    @RequiresPermissionsDesc(menu = {"推广管理", "专题管理"}, button = "查询")
-    */
-    @GetMapping("")
-    public Object list(String title, String subtitle,
-                       @RequestParam(defaultValue = "1") Integer page,
-                       @RequestParam(defaultValue = "10") Integer limit) ;
 
     @ApiOperation("管理员添加专题 /create")
     /**
