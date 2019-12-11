@@ -83,11 +83,11 @@ public class GoodsVo {
         this.shareRules = shareRules;
     }
 
-    public List<Product> getProducts() {
+    public List<ProductVo> getProducts() {
         return products;
     }
 
-    public void setProducts(List<Product> products) {
+    public void setProducts(List<ProductVo> products) {
         this.products = products;
     }
 
