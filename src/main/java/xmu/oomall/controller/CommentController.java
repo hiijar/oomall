@@ -15,13 +15,19 @@ import javax.validation.constraints.NotNull;
 @RequestMapping("/commentsService")
 public interface CommentController{
 
-    @GetMapping("/comments")
-    public Object list();
+    @GetMapping("/goods/{id}/comments")
+    public Object goodslist(@PathVariable Integer id);
+
+    @GetMapping("/admin/comments")
+    public Object adminlist(@PathVariable Integer userid,@PathVariable Integer productid,@RequestParam Integer page,@RequestParam Integer limit);
 
     @DeleteMapping("/comments/{id}")
     public Object delete(@PathVariable Integer id);
 
     @PostMapping("/goods/{id}/comments")
-    public Object create(CommentVo comment);
+    public Object create(@PathVariable Integer id,@RequestbodyCommentVo comment);
+
+    @PutMapping("/admin/comments/{id}")
+    public Object update(@PathVariable Integer id,@Requestbody CommentVo comment);
 
 }

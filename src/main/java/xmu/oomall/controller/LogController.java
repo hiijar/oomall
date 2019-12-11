@@ -15,9 +15,8 @@ import javax.validation.constraints.NotNull;
 @RestController
 @RequestMapping("/logService")
 public interface LogController{
-
     @GetMapping("/")
     @ApiOperation(value="管理员根据条件查看日志 /list")
-    public Object list();
+    public Object list(@RequestParam String adminName,@RequestParam Integer page,@RequestParam Integer limit);
 
 }
