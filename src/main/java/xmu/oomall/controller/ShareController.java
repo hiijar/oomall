@@ -1,10 +1,6 @@
-package xmu.oomall.controller;
+package lsz.test;
 
-import org.apache.tomcat.util.http.ResponseUtil;
-import org.springframework.core.annotation.Order;
 import org.springframework.web.bind.annotation.*;
-
-import javax.validation.constraints.NotNull;
 
 /**
  * @Author xyt
@@ -12,32 +8,34 @@ import javax.validation.constraints.NotNull;
  */
 
 @RestController
-@RequestMapping("")
+@RequestMapping("shareService")
 public interface ShareController {
     /**
+     * return shareRules
      */
-    @GetMapping("/shareRules")
-    public Object list();
+    @GetMapping("/goods/{id}shareRules")
+    public Object list(@PathVariable Integer shareRuleId);
+
     /**
+     * return shareRule
      */
     @PostMapping("/shareRules")
-    public Object create(@RequestBody String body);
+    public Object create(@RequestBody ShareRule shareRule);
+    /**
+     *
+     */
+    @DeleteMapping("/shareRules/{id}")
+    public Object delete(@PathVariable Integer id);
     /**
      */
-    @DeleteMapping("/shareRules")
-    public Object delete(@RequestBody String body);
+    @PutMapping("/shareRules/{id}")
+    public Object update(@RequestBody ShareRule shareRule, @PathVariable Integer id);
+
     /**
-     */
-    @PutMapping("/shareRules")
-    public Object update(@RequestBody String body);
-    /**
+     * return beShareItem
      */
     @PostMapping("/beSharedItems")
-    public Object createSharedItems(@RequestBody String body);
+    public Object createSharedItems(@RequestBody BeSharedItem beSharedItem);
 
-    @GetMapping("/shareRules/{goodsid}")
-    public Object getRebate();
 
-    @PostMapping("/beSharedItems")
-    public Object wxCreate(@RequestBody String body);
 }
