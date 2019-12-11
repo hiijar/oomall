@@ -1,6 +1,8 @@
-package lsz.test;
+package ooad33.order.controller;
 
 
+import ooad33.order.domain.vo.GetOrdersVo;
+import ooad33.order.domain.vo.OrderSubmitVo;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -76,12 +78,11 @@ public interface OrderController {
 
     /**
      *
-     * @param getOrdersVo
      * @param userId
      * @return  List<GetOrdersVo>
      */
     @GetMapping("/admin/orders")
-    Object adminGetOrders(GetOrdersVo getOrdersVo, @RequestParam Integer userId);
+    Object adminGetOrders( @RequestParam Integer userId);
 
     /**
      *
