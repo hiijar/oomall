@@ -93,12 +93,12 @@ public interface OrderController {
     Object getOrders(@PathVariable Integer id);
 
     /**
-     *
+     *管理员处理退款
      * @param id
      * @return  Order
      */
-    @PostMapping("/orders/{id}/refund")
-    Object orderFund(@PathVariable Integer id);
+    @PostMapping("/admin/orders/{id}/refund")
+    Object adminHandleRefund(@PathVariable Integer id);
 
     /**
      *
