@@ -34,7 +34,7 @@ public class AddressPo {
     /**
      * 县区id
      */
-    private String countyId;
+    private Integer countyId;
     /**
      * 地址详情
      */
