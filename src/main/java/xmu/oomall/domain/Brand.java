@@ -1,112 +1,18 @@
-package xmu.good.oomall.domain;
-import java.time.LocalDateTime;
-import java.util.Objects;
+package xmu.ddao.domain.standard;
 
-/**
- * @Author: 数据库与对象模型标准组
- * @Description:品牌信息
- * @Data:Created in 14:50 2019/11/29
- * @Modified By:
- **/
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
-public class Brand {
-    private Integer id;
-    /**
-    *品牌名称
-    */
-    private String name;
-    /**
-    *品牌描述
-    */
-    private String description;
-    /**
-    *品牌图片链接
-     */
-    private String picUrl;
+import java.util.List;
 
-    private LocalDateTime gmtCreate;
-    private LocalDateTime gmtModified;
-    private Boolean beDeleted;
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode(callSuper = true)
+public class Brand extends BrandPo {
 
-    @Override
-    public String toString() {
-        return "Brand{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", picUrl='" + picUrl + '\'' +
-                ", gmtCreate=" + gmtCreate +
-                ", gmtModified=" + gmtModified +
-                ", beDeleted=" + beDeleted +
-                '}';
-    }
+    private List<GoodsPo> goodsPoList;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {return true;}
-        if (o == null || getClass() != o.getClass()) {return false;}
-        Brand brand = (Brand) o;
-        return Objects.equals(id, brand.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getPicUrl() {
-        return picUrl;
-    }
-
-    public void setPicUrl(String picUrl) {
-        this.picUrl = picUrl;
-    }
-
-    public LocalDateTime getGmtCreate() {
-        return gmtCreate;
-    }
-
-    public void setGmtCreate(LocalDateTime gmtCreate) {
-        this.gmtCreate = gmtCreate;
-    }
-
-    public LocalDateTime getGmtModified() {
-        return gmtModified;
-    }
-
-    public void setGmtModified(LocalDateTime gmtModified) {
-        this.gmtModified = gmtModified;
-    }
-
-    public Boolean getBeDeleted() {
-        return beDeleted;
-    }
-
-    public void setBeDeleted(Boolean beDeleted) {
-        this.beDeleted = beDeleted;
-    }
 }

@@ -12,7 +12,7 @@ import java.util.List;
 @Setter
 @ToString
 @EqualsAndHashCode(callSuper = true)
-public class ShareRule extends ShareRulePo {
+public class GrouponRule extends GrouponRulePo {
     @Getter
     @Setter
     private class Strategy{

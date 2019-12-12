@@ -1,19 +1,25 @@
-package xmu.good.oomall.domain;
+package xmu.ddao.domain.standard;
+
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 import java.time.LocalDateTime;
-import java.util.Objects;
 
 /**
  * @Author: 数据库与对象模型标准组
  * @Description: 订单明细
- * @Date: Created in 14:50 2019/11/29
- * @Modified By:
+ * @Date: Created in 14:50 2019/12/11
  **/
-
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode
 public class AftersalesService {
     private Integer id;
     /**
-     *商品类型，1普通商品，2预售商品，3团购商品，4分享商品
+     * 下单时对应商品类型，只有两种：（1）预售商品，取值为1（2）其他商品，取值为0
      */
     private Integer goodsType;
     /**
@@ -33,7 +39,7 @@ public class AftersalesService {
      */
     private Integer type;
     /**
-     * 是否申请
+     * 用户售后请求现在是否有效（用户可以主动取消售后请求，售后请求也可能超时）
      */
     private Boolean beApplied;
     /**
@@ -49,168 +55,12 @@ public class AftersalesService {
      */
     private Integer statusCode;
     /**
-     * 产品ID
-     */
-    private Integer productId;
-    /**
      * 用户ID
      */
     private Integer userId;
+
     private LocalDateTime gmtCreate;
     private LocalDateTime gmtModified;
     private Boolean beDeleted;
 
-    @Override
-    public String toString() {
-        return "AftersalesService{" +
-                "id=" + id +
-                ", goodsType=" + goodsType +
-                ", applyTime=" + applyTime +
-                ", applyReason='" + applyReason + '\'' +
-                ", endTime=" + endTime +
-                ", type=" + type +
-                ", beApplied=" + beApplied +
-                ", number=" + number +
-                ", orderItemId=" + orderItemId +
-                ", statusCode=" + statusCode +
-                ", productId=" + productId +
-                ", userId=" + userId +
-                ", gmtCreate=" + gmtCreate +
-                ", gmtModified=" + gmtModified +
-                ", beDeleted=" + beDeleted +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {return true;}
-        if (o == null || getClass() != o.getClass()) {return false;}
-        AftersalesService that = (AftersalesService) o;
-        return Objects.equals(id, that.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getGoodsType() {
-        return goodsType;
-    }
-
-    public void setGoodsType(Integer goodsType) {
-        this.goodsType = goodsType;
-    }
-
-    public LocalDateTime getApplyTime() {
-        return applyTime;
-    }
-
-    public void setApplyTime(LocalDateTime applyTime) {
-        this.applyTime = applyTime;
-    }
-
-    public String getApplyReason() {
-        return applyReason;
-    }
-
-    public void setApplyReason(String applyReason) {
-        this.applyReason = applyReason;
-    }
-
-    public LocalDateTime getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(LocalDateTime endTime) {
-        this.endTime = endTime;
-    }
-
-    public Integer getType() {
-        return type;
-    }
-
-    public void setType(Integer type) {
-        this.type = type;
-    }
-
-    public Boolean getBeApplied() {
-        return beApplied;
-    }
-
-    public void setBeApplied(Boolean beApplied) {
-        this.beApplied = beApplied;
-    }
-
-    public Integer getNumber() {
-        return number;
-    }
-
-    public void setNumber(Integer number) {
-        this.number = number;
-    }
-
-    public Integer getOrderItemId() {
-        return orderItemId;
-    }
-
-    public void setOrderItemId(Integer orderItemId) {
-        this.orderItemId = orderItemId;
-    }
-
-    public LocalDateTime getGmtCreate() {
-        return gmtCreate;
-    }
-
-    public void setGmtCreate(LocalDateTime gmtCreate) {
-        this.gmtCreate = gmtCreate;
-    }
-
-    public LocalDateTime getGmtModified() {
-        return gmtModified;
-    }
-
-    public void setGmtModified(LocalDateTime gmtModified) {
-        this.gmtModified = gmtModified;
-    }
-
-    public Boolean getBeDeleted() {
-        return beDeleted;
-    }
-
-    public void setBeDeleted(Boolean beDeleted) {
-        this.beDeleted = beDeleted;
-    }
-
-    public Integer getStatusCode() {
-        return statusCode;
-    }
-
-    public void setStatusCode(Integer statusCode) {
-        this.statusCode = statusCode;
-    }
-
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
-    public Integer getProductId() {
-        return productId;
-    }
-
-    public void setProductId(Integer productId) {
-        this.productId = productId;
-    }
 }

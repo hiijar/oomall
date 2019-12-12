@@ -6,26 +6,30 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.time.LocalDateTime;
-import java.util.Objects;
 
 /**
  * @Author: 数据库与对象模型标准组
- * @Description: 角色表
+ * @Description:足迹信息
  * @Data:Created in 14:50 2019/12/11
  **/
 @Getter
 @Setter
 @ToString
 @EqualsAndHashCode
-public class Role {
+public class FootprintItemPo {
     private Integer id;
+
     /**
-     * 角色名字
-     */
-    private String name;
-
+    *创建时间
+    */
+    private LocalDateTime birthTime;
+    /**
+    *用户id
+    */
+    private Integer userId;
+    /**
+    *商品id
+    */
+    private Integer goodsId;
     private LocalDateTime gmtCreate;
-    private LocalDateTime gmtModified;
-    private Boolean beDeleted;
-
 }

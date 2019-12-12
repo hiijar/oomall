@@ -5,40 +5,36 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 /**
  * @Author: 数据库与对象模型标准组
- * @Description: 特殊运费模板
- * @Date: Created in 16:00 2019/12/11
+ * @Description: 购物车明细
+ * @Date: Created in 14:30 2019/12/11
  **/
 @Getter
 @Setter
 @ToString
 @EqualsAndHashCode
-public class SpecialFreight {
-
+public class CartItemPo {
     private Integer id;
     /**
-     * 首几件
+     * 购物车归属的用户id
      */
-    private Integer firstNumPiece;
+    private Integer userId;
     /**
-     * 首几件价格
+     * 货品ID
      */
-    private BigDecimal firstNumPiecePrice;
+    private Integer productId;
     /**
-     * 续几件
+     * 是否选中，0未选中，1已选中
      */
-    private Integer continueNumPiece;
+    private Boolean beCheck;
     /**
-     * 续几件的价格
+     * 数量
      */
-    private BigDecimal continueNumPiecePrice;
-
+    private Integer number;
     private LocalDateTime gmtCreate;
     private LocalDateTime gmtModified;
-    private Boolean beDeleted;
 
 }

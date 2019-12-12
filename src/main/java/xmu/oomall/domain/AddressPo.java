@@ -9,49 +9,55 @@ import java.time.LocalDateTime;
 
 /**
  * @Author: 数据库与对象模型标准组
- * @Description:广告信息
+ * @Description:地址
  * @Data:Created in 14:50 2019/12/11
  **/
 @Getter
 @Setter
 @ToString
 @EqualsAndHashCode
-public class Ad {
+public class AddressPo {
+
     private Integer id;
     /**
-     * 该广告的链接
+     * 用户id
      */
-    private String link;
+    private Integer userId;
     /**
-     * 该广告的名称
+     * 城市id
      */
-    private String name;
+    private Integer cityId;
     /**
-     * 该广告的内容
+     * 省份id
      */
-    private String content;
+    private Integer provinceId;
     /**
-     * 该广告显示时的图片
+     * 县区id
      */
-    private String picUrl;
+    private String countyId;
     /**
-     * 该广告是否是默认广告
+     * 地址详情
      */
-    private Boolean beDefault;
+    private String addressDetail;
     /**
-     * 该广告是否启用
+     * 联系电话
      */
-    private Boolean beEnable;
+    private String mobile;
     /**
-     * 该广告上线的时间
+     * 邮政编码
      */
-    private LocalDateTime startTime;
+    private String postalCode;
     /**
-     * 该广告下线的时间
+     * 收件人
      */
-    private LocalDateTime endTime;
+    private String consignee;
+    /**
+     * 是否是默认地址
+     */
+    private boolean beDefault;
+
+
     private LocalDateTime gmtCreate;
     private LocalDateTime gmtModified;
     private Boolean beDeleted;
-
 }

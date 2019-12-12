@@ -1,38 +1,36 @@
 package xmu.ddao.domain.standard;
 
+
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
 import java.time.LocalDateTime;
-import java.util.Objects;
+
 /**
  * @Author: 数据库与对象模型标准组
- * @Description: 角色权限表
+ * @Description:商品种类的信息
  * @Data:Created in 14:50 2019/12/11
  **/
 @Getter
 @Setter
 @ToString
 @EqualsAndHashCode
-public class Privilege {
+public class GoodsCategoryPo {
     private Integer id;
     /**
-     * 角色id
-     */
-    private Integer roleId;
-    /**
-     * 角色权限
-     * JSON格式:  {"url":xxx, "method":"GET"}
-     * eg.  {"url":"/user/{id}", "method":"GET"}, 表示拥有通过GET方式访问url "/user/{id}"的权限
+     * 种类的名称
      */
     private String name;
     /**
-     * 角色描述，文字性质的
+     * 该种类的父种类ID
      */
-    private String description;
-
+    private Integer pid;
+    /**
+     * 二级目录的pic
+     */
+    private String picUrl;
     private LocalDateTime gmtCreate;
     private LocalDateTime gmtModified;
     private Boolean beDeleted;

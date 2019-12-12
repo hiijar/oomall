@@ -5,15 +5,11 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.util.List;
-
 @Getter
 @Setter
 @ToString
 @EqualsAndHashCode(callSuper = true)
-public class DefaultFreight extends DefaultFreightPo {
+public class FootprintItem extends FootprintItemPo {
 
-    private List<Integer> regionIds;
-
-    //TODO: 加解析
+    private GoodsPo goodsPo;
 }

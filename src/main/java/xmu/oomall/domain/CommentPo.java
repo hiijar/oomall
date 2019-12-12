@@ -6,32 +6,38 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.time.LocalDateTime;
-import java.util.Objects;
+
 /**
  * @Author: 数据库与对象模型标准组
- * @Description: 角色权限表
+ * @Description:评论
  * @Data:Created in 14:50 2019/12/11
  **/
 @Getter
 @Setter
 @ToString
 @EqualsAndHashCode
-public class Privilege {
+public class CommentPo {
     private Integer id;
     /**
-     * 角色id
+     * 发表评论的用户的id
      */
-    private Integer roleId;
+    private Integer userId;
     /**
-     * 角色权限
-     * JSON格式:  {"url":xxx, "method":"GET"}
-     * eg.  {"url":"/user/{id}", "method":"GET"}, 表示拥有通过GET方式访问url "/user/{id}"的权限
+     * 发表评论的内容
      */
-    private String name;
+    private String content;
     /**
-     * 角色描述，文字性质的
+     * 评论的状态 0：未审核 1：审核通过 2：审核失败
      */
-    private String description;
+    private Integer statusCode;
+    /**
+     * 发表评论的星级（1-5）
+     */
+    private Integer star;
+    /**
+     * 评论的产品的id
+     */
+    private Integer productId;
 
     private LocalDateTime gmtCreate;
     private LocalDateTime gmtModified;

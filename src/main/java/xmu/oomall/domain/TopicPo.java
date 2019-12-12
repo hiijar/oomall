@@ -5,37 +5,29 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 /**
  * @Author: 数据库与对象模型标准组
- * @Description: 特殊运费模板
+ * @Description: 专题信息
  * @Date: Created in 16:00 2019/12/11
  **/
 @Getter
 @Setter
 @ToString
 @EqualsAndHashCode
-public class SpecialFreight {
+public class TopicPo {
 
     private Integer id;
     /**
-     * 首几件
+     * 专题图片的url的list
+     * JSON格式: {"pictures":[xxx,xxx]}, xxx为图片的url
      */
-    private Integer firstNumPiece;
+    private String picUrlList;
     /**
-     * 首几件价格
+     * 专题的内容
      */
-    private BigDecimal firstNumPiecePrice;
-    /**
-     * 续几件
-     */
-    private Integer continueNumPiece;
-    /**
-     * 续几件的价格
-     */
-    private BigDecimal continueNumPiecePrice;
+    private String content;
 
     private LocalDateTime gmtCreate;
     private LocalDateTime gmtModified;
