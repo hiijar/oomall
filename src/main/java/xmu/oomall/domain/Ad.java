@@ -41,7 +41,7 @@ public class Ad {
     /**
      * 该广告是否启用
      */
-    private Boolean beEnable;
+    private Boolean beEnabled;
     /**
      * 该广告上线的时间
      */
