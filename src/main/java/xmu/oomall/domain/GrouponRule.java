@@ -21,5 +21,4 @@ public class GrouponRule extends GrouponRulePo {
         private BigDecimal discountRate;
     }
     private List<Strategy> strategyList;
-    //TODO:JSON解析
 }

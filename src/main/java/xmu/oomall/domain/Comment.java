@@ -13,7 +13,6 @@ public class Comment extends CommentPo {
 
     private User user;
 
-    Comment(){
-        this.toString();
-    }
+    private ProductPo productPo;
+
 }
