@@ -7,6 +7,11 @@ import lombok.ToString;
 
 import java.util.List;
 
+/**
+ * @Author: 数据库与对象模型标准组
+ * @Description:默认计重模板对象
+ * @Data:Created in 14:50 2019/12/11
+ **/
 @Getter
 @Setter
 @ToString
@@ -14,6 +19,4 @@ import java.util.List;
 public class DefaultFreight extends DefaultFreightPo {
 
     private List<Integer> regionIds;
-
-    //TODO: 加解析
 }
