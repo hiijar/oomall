@@ -102,7 +102,6 @@ CREATE TABLE `aftersales_service` (
   `status` tinyint(2) unsigned DEFAULT '0',
   `number` int(8) unsigned DEFAULT '1',
   `order_item_id` bigint(11) unsigned DEFAULT NULL,
-  `product_id` bigint(11) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
 
@@ -175,10 +174,8 @@ CREATE TABLE `comment` (
   `user_id` bigint(11) unsigned DEFAULT NULL,
   `content` varchar(255) DEFAULT NULL,
   `status` tinyint(2) DEFAULT NULL,
-  `type` tinyint(1) unsigned DEFAULT NULL,
   `star` tinyint(1) unsigned DEFAULT NULL,
   `product_id` bigint(11) unsigned DEFAULT NULL,
-  `topic_id` bigint(11) unsigned DEFAULT NULL,
   `gmt_create` datetime(2) DEFAULT NULL,
   `gmt_modified` datetime(2) DEFAULT NULL,
   `is_deleted` tinyint(1) unsigned DEFAULT '0',
@@ -220,6 +217,7 @@ CREATE TABLE `coupon_rule` (
   `valid_period` int(4) unsigned DEFAULT NULL,
   `strategy` varchar(5000) DEFAULT NULL,
   `total` int(5) unsigned DEFAULT NULL,
+  `collected_num` int(5) unsigned DEFAULT NULL,
   `goods_list1` varchar(5000) DEFAULT NULL,
   `goods_list2` varchar(5000) DEFAULT NULL,
   `gmt_create` datetime(2) DEFAULT NULL,
@@ -233,7 +231,7 @@ CREATE TABLE `coupon_rule` (
 -- ----------------------------
 DROP TABLE IF EXISTS `default_freight`;
 CREATE TABLE `default_freight` (
-  `id` bigint(11) unsigned NOT NULL,
+  `id` bigint(11) unsigned NOT NULL AUTO_INCREMENT,
   `destination` varchar(255) DEFAULT NULL,
   `first_heavy_price` decimal(10,2) DEFAULT NULL,
   `continue_heavy_price` decimal(10,2) DEFAULT NULL,
@@ -253,7 +251,7 @@ CREATE TABLE `default_freight` (
 -- ----------------------------
 DROP TABLE IF EXISTS `default_piece_freight`;
 CREATE TABLE `default_piece_freight` (
-  `id` bigint(11) unsigned NOT NULL,
+  `id` bigint(11) unsigned NOT NULL AUTO_INCREMENT,
   `destination` varchar(255) DEFAULT NULL,
   `require_days` varchar(255) DEFAULT NULL,
   `unit_rate` decimal(10,2) DEFAULT NULL,
@@ -361,7 +359,6 @@ DROP TABLE IF EXISTS `order`;
 CREATE TABLE `order` (
   `id` bigint(11) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` bigint(11) unsigned DEFAULT NULL,
-  `be_shared_item_ids` varchar(255) DEFAULT NULL,
   `order_sn` varchar(63) DEFAULT NULL,
   `status` tinyint(4) DEFAULT NULL,
   `consignee` varchar(63) DEFAULT NULL,
@@ -393,7 +390,7 @@ DROP TABLE IF EXISTS `order_item`;
 CREATE TABLE `order_item` (
   `id` bigint(11) unsigned NOT NULL AUTO_INCREMENT,
   `order_id` bigint(11) unsigned DEFAULT NULL,
-  `item_type` varchar(255) DEFAULT NULL,
+  `item_type` smallint(3) DEFAULT NULL,
   `status` tinyint(1) DEFAULT NULL,
   `number` int(11) unsigned DEFAULT NULL,
   `price` decimal(10,2) DEFAULT NULL,
@@ -433,7 +430,6 @@ CREATE TABLE `payment` (
 DROP TABLE IF EXISTS `product`;
 CREATE TABLE `product` (
   `id` bigint(11) unsigned NOT NULL AUTO_INCREMENT,
-  `product_ids` varchar(255) DEFAULT NULL,
   `pic_url` varchar(255) DEFAULT NULL,
   `specifications` varchar(1000) DEFAULT NULL,
   `goods_id` bigint(11) unsigned DEFAULT NULL,
@@ -466,7 +462,6 @@ CREATE TABLE `share_item` (
   `id` bigint(11) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` bigint(11) unsigned DEFAULT NULL,
   `goods_id` bigint(11) unsigned DEFAULT NULL,
-  `status` tinyint(2) unsigned DEFAULT NULL,
   `success_num` smallint(5) unsigned DEFAULT '0', 
   `gmt_create` datetime(2) DEFAULT NULL,
   `gmt_modified` datetime(2) DEFAULT NULL,
@@ -480,8 +475,6 @@ CREATE TABLE `share_item` (
 DROP TABLE IF EXISTS `share_rule`;
 CREATE TABLE `share_rule` (
   `id` bigint(11) unsigned NOT NULL AUTO_INCREMENT,
-  `begin_time` datetime(2) DEFAULT NULL,
-  `end_time` datetime(2) DEFAULT NULL,
   `share_level_strategy` varchar(255) DEFAULT NULL,
   `goods_id` bigint(11) unsigned DEFAULT NULL,
   `gmt_modified` datetime(2) DEFAULT NULL,
@@ -561,5 +554,25 @@ CREATE TABLE `presale_rule` (
   `gmt_modified` datetime(2) DEFAULT NULL,
   `is_deleted` tinyint(1) unsigned DEFAULT '0',
   `deposit` decimal(10,2) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+-- ----------------------------
+-- Table structure for presale_rule
+-- ----------------------------
+DROP TABLE IF EXISTS `presale_rule`;
+CREATE TABLE `presale_rule` (
+  `id` bigint(11) unsigned NOT NULL AUTO_INCREMENT,
+  `goods_id` bigint(11) unsigned NOT NULL,
+  `start_time` datetime DEFAULT NULL,
+  `ad_end_time` datetime DEFAULT NULL,
+  `final_start_time` datetime DEFAULT NULL,
+  `end_time` datetime DEFAULT NULL,
+  `status` tinyint(1) unsigned DEFAULT '0',
+  `gmt_create` datetime(2) DEFAULT NULL,
+  `gmt_modified` datetime(2) DEFAULT NULL,
+  `is_deleted` tinyint(1) unsigned DEFAULT '0',
+  `deposit` decimal(10,2) DEFAULT NULL,
+  `final_payment` decimal(10,2) DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
