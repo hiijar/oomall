@@ -12,6 +12,10 @@ import java.util.List;
  **/
 public class OrderSubmitVo {
     /**
+     *  用户提交的返点数
+     */
+    private Integer rebate;
+    /**
      *  用户在购物车中选中项目的id
      */
     private List<Integer> cartItemIds;
@@ -39,6 +43,14 @@ public class OrderSubmitVo {
                 ", couponId=" + couponId +
                 ", message='" + message + '\'' +
                 '}';
+    }
+
+    public Integer getRebate() {
+        return rebate;
+    }
+
+    public void setRebate(Integer rebate) {
+        this.rebate = rebate;
     }
 
     public List<Integer> getCartItemIds() {
