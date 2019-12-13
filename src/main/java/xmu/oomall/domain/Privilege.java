@@ -29,7 +29,7 @@ public class Privilege {
      */
     private String name;
     /**
-     * 角色描述，文字性质的
+     * 权限描述，文字性质的（可能用不到）
      */
     private String description;
 
