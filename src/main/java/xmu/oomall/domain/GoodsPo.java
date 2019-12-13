@@ -52,7 +52,7 @@ public class GoodsPo {
     /**
      * 上下架状态，0表示下架，1表示上架，2表示最新，3表示最热，4表示最新且最热
      */
-    private Boolean statusCode;
+    private Integer statusCode;
     /**
      * 分享链接
      */
