@@ -2,8 +2,8 @@
 -- ----------------------------
 -- Table structure for ad
 -- ----------------------------
-DROP TABLE IF EXISTS `ad`;
-CREATE TABLE `ad` (
+DROP TABLE IF EXISTS `oomall_ad`;
+CREATE TABLE `oomall_ad` (
   `id` bigint(9) unsigned NOT NULL AUTO_INCREMENT,
   `link` varchar(255) DEFAULT NULL,
   `name` varchar(31) DEFAULT NULL,
@@ -22,8 +22,8 @@ CREATE TABLE `ad` (
 -- ----------------------------
 -- Table structure for address
 -- ----------------------------
-DROP TABLE IF EXISTS `address`;
-CREATE TABLE `address` (
+DROP TABLE IF EXISTS `oomall_address`;
+CREATE TABLE `oomall_address` (
   `id` bigint(9) unsigned NOT NULL AUTO_INCREMENT,
   `gmt_create` datetime(2) DEFAULT NULL,
   `gmt_modified` datetime(2) DEFAULT NULL,
@@ -43,8 +43,8 @@ CREATE TABLE `address` (
 -- ----------------------------
 -- Table structure for admin
 -- ----------------------------
-DROP TABLE IF EXISTS `admin`;
-CREATE TABLE `admin` (
+DROP TABLE IF EXISTS `oomall_admin`;
+CREATE TABLE `oomall_admin` (
   `id` bigint(9) unsigned NOT NULL AUTO_INCREMENT,
   `gmt_create` datetime(2) DEFAULT NULL,
   `gmt_modified` datetime(2) DEFAULT NULL,
@@ -58,8 +58,8 @@ CREATE TABLE `admin` (
 -- ----------------------------
 -- Table structure for role
 -- ----------------------------
-DROP TABLE IF EXISTS `role`;
-CREATE TABLE `role` (
+DROP TABLE IF EXISTS `oomall_role`;
+CREATE TABLE `oomall_role` (
   `id` bigint(9) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(63) NOT NULL,
   `gmt_create` datetime(2) DEFAULT NULL,
@@ -71,12 +71,12 @@ CREATE TABLE `role` (
 -- ----------------------------
 -- Table structure for privilege
 -- ----------------------------
-DROP TABLE IF EXISTS `privilege`;
-CREATE TABLE `privilege` (
+DROP TABLE IF EXISTS `oomall_privilege`;
+CREATE TABLE `oomall_privilege` (
   `id` bigint(9) unsigned NOT NULL AUTO_INCREMENT,
   `role_id` bigint(9) unsigned DEFAULT NULL,
-  `name` varchar(5000) NOT NULL,
-  `description` varchar(1000) DEFAULT NULL,
+  `url` varchar(200) NOT NULL,
+  `method` varchar(50) DEFAULT NULL,
   `gmt_create` datetime(2) DEFAULT NULL,
   `gmt_modified` datetime(2) DEFAULT NULL,
   `is_deleted` tinyint(1) unsigned DEFAULT '0',
@@ -86,8 +86,8 @@ CREATE TABLE `privilege` (
 -- ----------------------------
 -- Table structure for aftersales_service
 -- ----------------------------
-DROP TABLE IF EXISTS `aftersales_service`;
-CREATE TABLE `aftersales_service` (
+DROP TABLE IF EXISTS `oomall_aftersales_service`;
+CREATE TABLE `oomall_aftersales_service` (
   `id` bigint(9) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` bigint(9) unsigned DEFAULT NULL,
   `gmt_create` datetime(2) DEFAULT NULL,
@@ -108,8 +108,8 @@ CREATE TABLE `aftersales_service` (
 -- ----------------------------
 -- Table structure for be_shared_item
 -- ----------------------------
-DROP TABLE IF EXISTS `be_shared_item`;
-CREATE TABLE `be_shared_item` (
+DROP TABLE IF EXISTS `oomall_be_shared_item`;
+CREATE TABLE `oomall_be_shared_item` (
   `id` bigint(9) unsigned NOT NULL AUTO_INCREMENT,
   `goods_id` bigint(9) unsigned DEFAULT NULL,
   `sharer_id` bigint(9) unsigned DEFAULT NULL,
@@ -125,8 +125,8 @@ CREATE TABLE `be_shared_item` (
 -- ----------------------------
 -- Table structure for brand
 -- ----------------------------
-DROP TABLE IF EXISTS `brand`;
-CREATE TABLE `brand` (
+DROP TABLE IF EXISTS `oomall_brand`;
+CREATE TABLE `oomall_brand` (
   `id` bigint(9) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(31) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
@@ -140,8 +140,8 @@ CREATE TABLE `brand` (
 -- ----------------------------
 -- Table structure for cart_item
 -- ----------------------------
-DROP TABLE IF EXISTS `cart_item`;
-CREATE TABLE `cart_item` (
+DROP TABLE IF EXISTS `oomall_cart_item`;
+CREATE TABLE `oomall_cart_item` (
   `id` bigint(9) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` bigint(9) unsigned DEFAULT NULL,
   `product_id` bigint(9) unsigned DEFAULT NULL,
@@ -155,8 +155,8 @@ CREATE TABLE `cart_item` (
 -- ----------------------------
 -- Table structure for collect_item
 -- ----------------------------
-DROP TABLE IF EXISTS `collect_item`;
-CREATE TABLE `collect_item` (
+DROP TABLE IF EXISTS `oomall_collect_item`;
+CREATE TABLE `oomall_collect_item` (
   `id` bigint(9) unsigned NOT NULL AUTO_INCREMENT,
   `goods_id` bigint(9) unsigned DEFAULT NULL,
   `user_id` bigint(9) unsigned DEFAULT NULL,
@@ -168,8 +168,8 @@ CREATE TABLE `collect_item` (
 -- ----------------------------
 -- Table structure for comment
 -- ----------------------------
-DROP TABLE IF EXISTS `comment`;
-CREATE TABLE `comment` (
+DROP TABLE IF EXISTS `oomall_comment`;
+CREATE TABLE `oomall_comment` (
   `id` bigint(9) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` bigint(9) unsigned DEFAULT NULL,
   `content` varchar(255) DEFAULT NULL,
@@ -185,8 +185,8 @@ CREATE TABLE `comment` (
 -- ----------------------------
 -- Table structure for coupon
 -- ----------------------------
-DROP TABLE IF EXISTS `coupon`;
-CREATE TABLE `coupon` (
+DROP TABLE IF EXISTS `oomall_coupon`;
+CREATE TABLE `oomall_coupon` (
   `id` bigint(9) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` bigint(9) unsigned DEFAULT NULL,
   `coupon_rule_id` bigint(9) unsigned DEFAULT NULL,
@@ -206,8 +206,8 @@ CREATE TABLE `coupon` (
 -- ----------------------------
 -- Table structure for coupon_rule
 -- ----------------------------
-DROP TABLE IF EXISTS `coupon_rule`;
-CREATE TABLE `coupon_rule` (
+DROP TABLE IF EXISTS `oomall_coupon_rule`;
+CREATE TABLE `oomall_coupon_rule` (
   `id` bigint(9) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(31) DEFAULT NULL,
   `brief` varchar(63) DEFAULT NULL,
@@ -229,8 +229,8 @@ CREATE TABLE `coupon_rule` (
 -- ----------------------------
 -- Table structure for default_freight
 -- ----------------------------
-DROP TABLE IF EXISTS `default_freight`;
-CREATE TABLE `default_freight` (
+DROP TABLE IF EXISTS `oomall_default_freight`;
+CREATE TABLE `oomall_default_freight` (
   `id` bigint(9) unsigned NOT NULL AUTO_INCREMENT,
   `destination` varchar(255) DEFAULT NULL,
   `first_heavy_price` decimal(10,2) DEFAULT NULL,
@@ -249,8 +249,8 @@ CREATE TABLE `default_freight` (
 -- ----------------------------
 -- Table structure for default_piece_freight
 -- ----------------------------
-DROP TABLE IF EXISTS `default_piece_freight`;
-CREATE TABLE `default_piece_freight` (
+DROP TABLE IF EXISTS `oomall_default_piece_freight`;
+CREATE TABLE `oomall_default_piece_freight` (
   `id` bigint(9) unsigned NOT NULL AUTO_INCREMENT,
   `destination` varchar(255) DEFAULT NULL,
   `require_days` varchar(255) DEFAULT NULL,
@@ -264,8 +264,8 @@ CREATE TABLE `default_piece_freight` (
 -- ----------------------------
 -- Table structure for footprint_item
 -- ----------------------------
-DROP TABLE IF EXISTS `footprint_item`;
-CREATE TABLE `footprint_item` (
+DROP TABLE IF EXISTS `oomall_footprint_item`;
+CREATE TABLE `oomall_footprint_item` (
   `id` bigint(9) unsigned NOT NULL AUTO_INCREMENT,
   `gmt_create` datetime(2) DEFAULT NULL,
   `birth_time` datetime(2) DEFAULT NULL,
@@ -277,8 +277,8 @@ CREATE TABLE `footprint_item` (
 -- ----------------------------
 -- Table structure for goods
 -- ----------------------------
-DROP TABLE IF EXISTS `goods`;
-CREATE TABLE `goods` (
+DROP TABLE IF EXISTS `oomall_goods`;
+CREATE TABLE `oomall_goods` (
   `id` bigint(9) unsigned NOT NULL AUTO_INCREMENT,
   `gmt_create` datetime(2) DEFAULT NULL,
   `gmt_modified` datetime(2) DEFAULT NULL,
@@ -306,8 +306,8 @@ CREATE TABLE `goods` (
 -- ----------------------------
 -- Table structure for goods_category
 -- ----------------------------
-DROP TABLE IF EXISTS `goods_category`;
-CREATE TABLE `goods_category` (
+DROP TABLE IF EXISTS `oomall_goods_category`;
+CREATE TABLE `oomall_goods_category` (
   `id` bigint(9) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   `pid` bigint(9) unsigned DEFAULT NULL,
@@ -321,8 +321,8 @@ CREATE TABLE `goods_category` (
 -- ----------------------------
 -- Table structure for groupon_rule
 -- ----------------------------
-DROP TABLE IF EXISTS `groupon_rule`;
-CREATE TABLE `groupon_rule` (
+DROP TABLE IF EXISTS `oomall_groupon_rule`;
+CREATE TABLE `oomall_groupon_rule` (
   `id` bigint(9) unsigned NOT NULL AUTO_INCREMENT,
   `gmt_create` datetime(2) DEFAULT NULL,
   `gmt_modified` datetime(2) DEFAULT NULL,
@@ -338,13 +338,13 @@ CREATE TABLE `groupon_rule` (
 -- ----------------------------
 -- Table structure for log
 -- ----------------------------
-DROP TABLE IF EXISTS `log`;
-CREATE TABLE `log` (
+DROP TABLE IF EXISTS `oomall_log`;
+CREATE TABLE `oomall_log` (
   `id` bigint(9) unsigned NOT NULL AUTO_INCREMENT,
   `admin_id` bigint(9) unsigned DEFAULT NULL,
   `ip` varchar(31) DEFAULT NULL,
   `type` tinyint(4) unsigned DEFAULT NULL,
-  `action` varchar(63) DEFAULT NULL,
+  `actions` varchar(63) DEFAULT NULL,
   `status` tinyint(4) DEFAULT NULL,
   `gmt_create` datetime(2) DEFAULT NULL,
   `gmt_modified` datetime(2) DEFAULT NULL,
@@ -355,8 +355,8 @@ CREATE TABLE `log` (
 -- ----------------------------
 -- Table structure for order
 -- ----------------------------
-DROP TABLE IF EXISTS `order`;
-CREATE TABLE `order` (
+DROP TABLE IF EXISTS `oomall_order`;
+CREATE TABLE `oomall_order` (
   `id` bigint(9) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` bigint(9) unsigned DEFAULT NULL,
   `order_sn` varchar(63) DEFAULT NULL,
@@ -386,8 +386,8 @@ CREATE TABLE `order` (
 -- ----------------------------
 -- Table structure for order_item
 -- ----------------------------
-DROP TABLE IF EXISTS `order_item`;
-CREATE TABLE `order_item` (
+DROP TABLE IF EXISTS `oomall_order_item`;
+CREATE TABLE `oomall_order_item` (
   `id` bigint(9) unsigned NOT NULL AUTO_INCREMENT,
   `order_id` bigint(9) unsigned DEFAULT NULL,
   `item_type` smallint(3) DEFAULT NULL,
@@ -407,8 +407,8 @@ CREATE TABLE `order_item` (
 -- ----------------------------
 -- Table structure for payment
 -- ----------------------------
-DROP TABLE IF EXISTS `payment`;
-CREATE TABLE `payment` (
+DROP TABLE IF EXISTS `oomall_payment`;
+CREATE TABLE `oomall_payment` (
   `id` bigint(9) unsigned NOT NULL AUTO_INCREMENT,
   `actual_price` decimal(10,2) unsigned DEFAULT NULL,
   `pay_channel` tinyint(3) unsigned DEFAULT NULL,
@@ -427,8 +427,8 @@ CREATE TABLE `payment` (
 -- ----------------------------
 -- Table structure for product
 -- ----------------------------
-DROP TABLE IF EXISTS `product`;
-CREATE TABLE `product` (
+DROP TABLE IF EXISTS `oomall_product`;
+CREATE TABLE `oomall_product` (
   `id` bigint(9) unsigned NOT NULL AUTO_INCREMENT,
   `pic_url` varchar(255) DEFAULT NULL,
   `specifications` varchar(1000) DEFAULT NULL,
@@ -444,8 +444,8 @@ CREATE TABLE `product` (
 -- ----------------------------
 -- Table structure for region
 -- ----------------------------
-DROP TABLE IF EXISTS `region`;
-CREATE TABLE `region` (
+DROP TABLE IF EXISTS `oomall_region`;
+CREATE TABLE `oomall_region` (
   `id` bigint(9) unsigned NOT NULL AUTO_INCREMENT,
   `pid` bigint(9) unsigned NOT NULL,
   `name` varchar(120) DEFAULT '',
@@ -457,8 +457,8 @@ CREATE TABLE `region` (
 -- ----------------------------
 -- Table structure for share_item
 -- ----------------------------
-DROP TABLE IF EXISTS `share_item`;
-CREATE TABLE `share_item` (
+DROP TABLE IF EXISTS `oomall_share_item`;
+CREATE TABLE `oomall_share_item` (
   `id` bigint(9) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` bigint(9) unsigned DEFAULT NULL,
   `goods_id` bigint(9) unsigned DEFAULT NULL,
@@ -472,8 +472,8 @@ CREATE TABLE `share_item` (
 -- ----------------------------
 -- Table structure for share_rule
 -- ----------------------------
-DROP TABLE IF EXISTS `share_rule`;
-CREATE TABLE `share_rule` (
+DROP TABLE IF EXISTS `oomall_share_rule`;
+CREATE TABLE `oomall_share_rule` (
   `id` bigint(9) unsigned NOT NULL AUTO_INCREMENT,
   `share_level_strategy` varchar(255) DEFAULT NULL,
   `goods_id` bigint(9) unsigned DEFAULT NULL,
@@ -486,8 +486,8 @@ CREATE TABLE `share_rule` (
 -- ----------------------------
 -- Table structure for special_freight
 -- ----------------------------
-DROP TABLE IF EXISTS `special_freight`;
-CREATE TABLE `special_freight` (
+DROP TABLE IF EXISTS `oomall_special_freight`;
+CREATE TABLE `oomall_special_freight` (
   `id` bigint(9) unsigned NOT NULL AUTO_INCREMENT,
   `first_num_piece` smallint(5) unsigned DEFAULT NULL,
   `first_num_piece_price` decimal(10,2) DEFAULT NULL,
@@ -502,8 +502,8 @@ CREATE TABLE `special_freight` (
 -- ----------------------------
 -- Table structure for topic
 -- ----------------------------
-DROP TABLE IF EXISTS `topic`;
-CREATE TABLE `topic` (
+DROP TABLE IF EXISTS `oomall_topic`;
+CREATE TABLE `oomall_topic` (
   `id` bigint(9) unsigned NOT NULL AUTO_INCREMENT,
   `gmt_create` datetime(2) DEFAULT NULL,
   `gmt_modified` datetime(2) DEFAULT NULL,
@@ -516,8 +516,8 @@ CREATE TABLE `topic` (
 -- ----------------------------
 -- Table structure for user
 -- ----------------------------
-DROP TABLE IF EXISTS `user`;
-CREATE TABLE `user` (
+DROP TABLE IF EXISTS `oomall_user`;
+CREATE TABLE `oomall_user` (
   `id` bigint(9) unsigned NOT NULL AUTO_INCREMENT,
   `password` varchar(255) DEFAULT NULL,
   `name` varchar(31) DEFAULT NULL,
@@ -536,24 +536,6 @@ CREATE TABLE `user` (
   `gmt_create` datetime(2) DEFAULT NULL,
   `gmt_modified` datetime(2) DEFAULT NULL,
   `is_deleted` tinyint(1) unsigned DEFAULT '0',
-  PRIMARY KEY (`id`)
-);
-
--- ----------------------------
--- Table structure for presale_rule
--- ----------------------------
-DROP TABLE IF EXISTS `presale_rule`;
-CREATE TABLE `presale_rule` (
-  `id` bigint(9) unsigned NOT NULL AUTO_INCREMENT,
-  `strategy` varchar(5000) DEFAULT NULL,
-  `goods_id` bigint(9) unsigned NOT NULL,
-  `start_time` datetime DEFAULT NULL,
-  `end_time` datetime DEFAULT NULL,
-  `status` tinyint(1) unsigned DEFAULT '0',
-  `gmt_create` datetime(2) DEFAULT NULL,
-  `gmt_modified` datetime(2) DEFAULT NULL,
-  `is_deleted` tinyint(1) unsigned DEFAULT '0',
-  `deposit` decimal(10,2) DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
 
