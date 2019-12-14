@@ -70,4 +70,8 @@
 
   ##### 模块组将会选择以对象模型组写好的不同的对象来作为传输标准。
 
-  
+### 2019.12.14 更新日志
+
+- 需求增加了不同的返点规则，故修改了ShareRulePo中的strategyJSON格式（见代码注释），ShareRule增加type字段
+- 数据库sql中返点的success_num由smallint改为bigint类型
+

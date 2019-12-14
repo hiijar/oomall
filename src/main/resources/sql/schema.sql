@@ -462,7 +462,7 @@ CREATE TABLE `share_item` (
   `id` bigint(9) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` bigint(9) unsigned DEFAULT NULL,
   `goods_id` bigint(9) unsigned DEFAULT NULL,
-  `success_num` smallint(5) unsigned DEFAULT '0', 
+  `success_num` bigint(9) unsigned DEFAULT '0', 
   `gmt_create` datetime(2) DEFAULT NULL,
   `gmt_modified` datetime(2) DEFAULT NULL,
   `is_deleted` tinyint(1) unsigned DEFAULT '0',
