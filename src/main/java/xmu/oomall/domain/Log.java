@@ -34,7 +34,7 @@ public class Log {
     /**
      * 操作的动作
      */
-    private String action;
+    private String actions;
     /**
      * 操作的状态，0表示操作失败，1表示操作成功
      */
