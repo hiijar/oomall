@@ -78,3 +78,7 @@
 - 为避免关键字问题，Log表中的action改名为actions
 - 权限表的name字段存在JSON解析慢的问题，故拆成了url和method两个字段
 
+### 2019.12.15 更新日志
+
+- 补上了sql中order_item误删的pic_url属性
+- 更新了sql的基础数据

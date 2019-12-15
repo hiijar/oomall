@@ -400,6 +400,7 @@ CREATE TABLE `oomall_order_item` (
   `gmt_modified` datetime(2) DEFAULT NULL,
   `is_deleted` tinyint(1) unsigned DEFAULT '0',
   `goods_id` bigint(9) unsigned DEFAULT NULL,
+  `pic_url` varchar(255) DEFAULT NULL,
   `name_with_specifications` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
@@ -542,8 +543,8 @@ CREATE TABLE `oomall_user` (
 -- ----------------------------
 -- Table structure for presale_rule
 -- ----------------------------
-DROP TABLE IF EXISTS `presale_rule`;
-CREATE TABLE `presale_rule` (
+DROP TABLE IF EXISTS `oomall_presale_rule`;
+CREATE TABLE `oomall_presale_rule` (
   `id` bigint(9) unsigned NOT NULL AUTO_INCREMENT,
   `goods_id` bigint(9) unsigned NOT NULL,
   `start_time` datetime DEFAULT NULL,
