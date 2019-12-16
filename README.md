@@ -82,3 +82,9 @@
 
 - 补上了sql中order_item误删的pic_url属性
 - 更新了sql的基础数据
+
+### 2019.12.16 更新日志
+
+- Order中添加paymentList，用于处理预售
+- 修复Product.java出现的编码问题
+
