@@ -31,9 +31,9 @@ public class Payment {
      */
     private Integer payChannel;
     /**
-     * 是否付款成功,0不成功，1成功
+     * 付款状态,0未支付，1成功，2失败
      */
-    private Boolean beSuccessful;
+    private Integer statusCode;
     /**
      * 付款时间
      */

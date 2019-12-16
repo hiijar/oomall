@@ -87,4 +87,5 @@
 
 - Order中添加paymentList，用于处理预售
 - 修复Product.java出现的编码问题
+- Payment的sql中is_successful改为status，domain中改为statusCode，0未支付，1成功，2失败
 
