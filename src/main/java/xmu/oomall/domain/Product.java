@@ -15,5 +15,5 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode(callSuper = true)
 public class Product extends ProductPo {
-    private GoodsPo goodsPo;
+    private Goods goods;
 }

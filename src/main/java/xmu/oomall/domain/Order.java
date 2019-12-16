@@ -21,4 +21,5 @@ public class Order extends OrderPo {
     private User user;
     private List<OrderItem> orderItemList;
     private Integer couponId;
+    private List<Payment> paymentList;
 }
