@@ -92,3 +92,5 @@
 ### 2019.12.17
 
 - payment为了支持退款，sql中的付款金额取消unsigned(违背阿里规约)，以支持负数的退款
+- couponPo中statusCode属性类型改为Integer
+- couponRule中sql添加status属性（解决管理员强行下架优惠券规则），domain中同理添加该属性

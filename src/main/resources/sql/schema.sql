@@ -213,6 +213,7 @@ CREATE TABLE `oomall_coupon_rule` (
   `brief` varchar(63) DEFAULT NULL,
   `begin_time` datetime(2) DEFAULT NULL,
   `end_time` datetime(2) DEFAULT NULL,
+  `status` tinyint(2) unsigned DEFAULT NULL,
   `pic_url` varchar(255) DEFAULT NULL,
   `valid_period` int(4) unsigned DEFAULT NULL,
   `strategy` varchar(5000) DEFAULT NULL,

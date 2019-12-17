@@ -36,6 +36,10 @@ public class CouponRulePo {
      */
     private LocalDateTime endTime;
     /**
+     * 判断优惠券规则是否还有效（管理员下架）
+     */
+    private Boolean statusCode;
+    /**
      * 优惠券规则的图片
      */
     private String picUrl;
