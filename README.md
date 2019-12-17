@@ -89,3 +89,6 @@
 - 修复Product.java出现的编码问题
 - Payment的sql中is_successful改为status，domain中改为statusCode，0未支付，1成功，2失败
 
+### 2019.12.17
+
+- payment为了支持退款，sql中的付款金额取消unsigned(违背阿里规约)，以支持负数的退款

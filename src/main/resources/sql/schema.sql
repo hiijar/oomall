@@ -253,11 +253,11 @@ DROP TABLE IF EXISTS `oomall_default_piece_freight`;
 CREATE TABLE `oomall_default_piece_freight` (
   `id` bigint(9) unsigned NOT NULL AUTO_INCREMENT,
   `destination` varchar(255) DEFAULT NULL,
-  `require_days` varchar(255) DEFAULT NULL,
   `unit_rate` decimal(10,2) DEFAULT NULL,
   `gmt_create` datetime(2) DEFAULT NULL,
   `gmt_modified` datetime(2) DEFAULT NULL,
   `is_deleted` tinyint(1) unsigned DEFAULT '0',
+  `require_days` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
 
@@ -411,7 +411,7 @@ CREATE TABLE `oomall_order_item` (
 DROP TABLE IF EXISTS `oomall_payment`;
 CREATE TABLE `oomall_payment` (
   `id` bigint(9) unsigned NOT NULL AUTO_INCREMENT,
-  `actual_price` decimal(10,2) unsigned DEFAULT NULL,
+  `actual_price` decimal(10,2) DEFAULT NULL,
   `pay_channel` tinyint(3) unsigned DEFAULT NULL,
   `status` smallint(5) unsigned DEFAULT '0',
   `pay_time` datetime(2) DEFAULT NULL,
