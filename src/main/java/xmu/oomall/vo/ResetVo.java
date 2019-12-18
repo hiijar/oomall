@@ -1,4 +1,4 @@
-package xmu.oomall.VO;
+package xmu.oomall.vo;
 
 /**
  * 重置密码和重置手机号码的Vo，这里不需要username和userId，因为telephone对每一个用户唯一

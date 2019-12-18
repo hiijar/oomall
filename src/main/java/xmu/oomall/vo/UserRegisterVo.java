@@ -1,4 +1,4 @@
-package xmu.oomall.VO;
+package xmu.oomall.vo;
 
 /**
  * 用户注册VO
