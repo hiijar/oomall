@@ -4,10 +4,10 @@ import xmu.oomall.domain.Address;
 import java.util.List;
 
 /**
- * @Author: Ming Qiu
- * @Description: OrderController.submit 的VO对象
- * @Date: Created in 15:06 2019/11/5
- * @Modified By:
+ * @author: Ming Qiu
+ * @description: OrderController.submit 的VO对象
+ * @date: Created in 15:06 2019/11/5
+ * @modified By:
  **/
 public class OrderSubmitVo {
     /**
