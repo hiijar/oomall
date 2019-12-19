@@ -1,4 +1,8 @@
 package xmu.oomall.vo;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 import xmu.oomall.domain.Address;
 
 import java.util.List;
@@ -9,6 +13,10 @@ import java.util.List;
  * @date: Created in 15:06 2019/11/5
  * @modified By:
  **/
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode
 public class OrderSubmitVo {
     /**
      *  用户提交的返点数
@@ -30,57 +38,4 @@ public class OrderSubmitVo {
      * 订单留言
      */
     private String message ="";
-
-    /****************************************************
-     * 生成代码
-     ****************************************************/
-    @Override
-    public String toString() {
-        return "OrderSubmitVo{" +
-                "cartItemIds=" + cartItemIds +
-                ", address=" + address +
-                ", couponId=" + couponId +
-                ", message='" + message + '\'' +
-                '}';
-    }
-
-    public Integer getRebate() {
-        return rebate;
-    }
-
-    public void setRebate(Integer rebate) {
-        this.rebate = rebate;
-    }
-
-    public List<Integer> getCartItemIds() {
-        return cartItemIds;
-    }
-
-    public void setCartItemIds(List<Integer> cartItemIds) {
-        this.cartItemIds = cartItemIds;
-    }
-
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
-    }
-
-    public Integer getCouponId() {
-        return couponId;
-    }
-
-    public void setCouponId(Integer couponId) {
-        this.couponId = couponId;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
 }
