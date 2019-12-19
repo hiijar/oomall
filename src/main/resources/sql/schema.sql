@@ -10,7 +10,7 @@ CREATE TABLE `oomall_ad` (
   `content` varchar(255) DEFAULT NULL,
   `pic_url` varchar(255) DEFAULT NULL,
   `is_default` tinyint(1) unsigned DEFAULT '0',
-  `is_enabled` tinyint(1) unsigned DEFAULT '0',
+  `is_enabled` tinyint(1) unsigned DEFAULT '1',
   `start_time` datetime(2) DEFAULT NULL,
   `end_time` datetime(2) DEFAULT NULL,
   `gmt_create` datetime(2) DEFAULT NULL,
@@ -98,7 +98,7 @@ CREATE TABLE `oomall_aftersales_service` (
   `apply_reason` varchar(255) DEFAULT NULL,
   `end_time` datetime(2) DEFAULT NULL,
   `type` int(8) DEFAULT NULL,
-  `is_applied` tinyint(1) unsigned DEFAULT '0',
+  `is_applied` tinyint(1) unsigned DEFAULT '1',
   `status` tinyint(2) unsigned DEFAULT '0',
   `number` int(8) unsigned DEFAULT '1',
   `order_item_id` bigint(9) unsigned DEFAULT NULL,
@@ -311,10 +311,10 @@ DROP TABLE IF EXISTS `oomall_goods_category`;
 CREATE TABLE `oomall_goods_category` (
   `id` bigint(9) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
-  `pid` bigint(9) unsigned DEFAULT NULL,
+  `pid` bigint(9) unsigned DEFAULT '0',
   `gmt_create` datetime(2) DEFAULT NULL,
   `gmt_modified` datetime(2) DEFAULT NULL,
-  `is_deleted` tinyint(1) unsigned DEFAULT '1',
+  `is_deleted` tinyint(1) unsigned DEFAULT '0',
   `pic_url` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
