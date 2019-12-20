@@ -34,7 +34,7 @@ public class GrouponRulePo {
      * 团购等级（满多少人组团多少折扣）
      * JSON格式: {"strategy": [{"lowerbound":xxx, "upperbound":xxx, "rate":xxx}]}, xxx为具体数值
      */
-    private String grouponLevelStragety;
+    private String grouponLevelStrategy;
     /**
      * 团购商品id
      */

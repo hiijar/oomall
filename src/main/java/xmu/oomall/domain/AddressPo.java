@@ -54,7 +54,7 @@ public class AddressPo {
     /**
      * 是否是默认地址
      */
-    private boolean beDefault;
+    private Boolean beDefault;
 
 
     private LocalDateTime gmtCreate;
