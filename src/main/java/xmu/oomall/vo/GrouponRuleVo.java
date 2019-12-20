@@ -1,7 +1,7 @@
 package xmu.oomall.vo;
 
-import xmu.oomall.discount.domain.GoodsPo;
-import xmu.oomall.discount.domain.GrouponRulePo;
+import xmu.oomall.domain.GoodsPo;
+import xmu.oomall.domain.GrouponRulePo;
 
 public class GrouponRuleVo {
     private GrouponRulePo grouponRulePo;

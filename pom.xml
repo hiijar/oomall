@@ -13,7 +13,7 @@
         <groupId>xmu.oomall</groupId>
         <artifactId>integration-test</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath/>
+        <relativePath>../</relativePath>
     </parent>
 
     <dependencies>
@@ -22,7 +22,6 @@
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
         </dependency>
-
     </dependencies>
 
     <build>

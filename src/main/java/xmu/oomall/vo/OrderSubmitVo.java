@@ -1,5 +1,5 @@
 package xmu.oomall.vo;
-import xmu.oomall.domain.user.Address;
+import xmu.oomall.domain.Address;
 
 import java.util.List;
 
