@@ -1,5 +1,9 @@
 package xmu.oomall.vo;
-import xmu.oomall.domain.user.Address;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+import xmu.oomall.domain.Address;
 
 import java.util.List;
 
